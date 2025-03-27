@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.util.Scanner;
 
+import dao.ConexionBD;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -35,8 +37,6 @@ public class App {
         }   
             
         }while(opcion != 9);
-      
-      Empezar
 
         System.out.println("Hola");
 
