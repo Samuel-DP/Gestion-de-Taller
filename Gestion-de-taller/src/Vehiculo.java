@@ -1,19 +1,21 @@
-public class Vehiculos{
+
+
+public class Vehiculo{
 
     private String matricula;
     private String marca;
     private String modelo;
     private int año;
     private int km;
-    private String nºBastidor;
+    private String nBastidor;
 
-    public Vehiculos(String matricula,String marca, String modelo, int año, int km, String nºBastidor  ){
+    public Vehiculo(String matricula,String marca, String modelo, int año, int km, String nBastidor  ){
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.año = año;
         this.km = km;
-        this.nºBastidor = nºBastidor;
+        this.nBastidor = nBastidor;
     }
     
 }

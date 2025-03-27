@@ -1,4 +1,4 @@
-public class Clientes {
+public class Cliente {
     
     private String nombre;
     private String apellidos;
@@ -6,7 +6,7 @@ public class Clientes {
     private int telefono;
  
 
-    public Clientes(String nombre, String apellidos, String dni, int telefono) {
+    public Cliente(String nombre, String apellidos, String dni, int telefono) {
 
         this.nombre = nombre;
         this.apellidos = apellidos;
