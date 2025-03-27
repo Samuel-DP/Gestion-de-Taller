@@ -65,4 +65,26 @@ public class Taller {
         Servicio servicio = new Servicio(descripcionServicio, precioServicio, horasServicio);
         return servicio;
     }
+
+    public Empleado crearEmpleado(){
+        String nombreEmpleado;
+        String apellidoEmpleado;
+        String dniEmpleado;
+        int puestoEmpleado;
+        int salarioEmpleado;
+
+        System.out.println("Ingresa un nombre: ");
+        nombreEmpleado = scanner.nextLine();
+        System.out.println("Ingresa un apellido: ");
+        apellidoEmpleado = scanner.nextLine();
+        System.out.println("Ingrese el DNI: ");
+        dniEmpleado = scanner.nextLine();
+        System.out.println("Ingrese el puesto: ");
+        puestoEmpleado = scanner.nextInt();
+        System.out.println("Ingrese el salario: ");
+        salarioEmpleado = scanner.nextInt();
+
+        Empleado empleado = new Empleado(nombreEmpleado, apellidoEmpleado, dniEmpleado, puestoEmpleado, salarioEmpleado);
+        return empleado;
+    }
 }

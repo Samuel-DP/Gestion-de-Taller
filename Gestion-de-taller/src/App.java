@@ -11,12 +11,12 @@ public class App {
         System.out.println("1. Registrar cliente");
         System.out.println("2. Registrar vehiculo");
         System.out.println("3. Crear servicio");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("8. Salir");
+        System.out.println("4. Crear empleado");
+        System.out.println("5. Asignar servicio");
+        System.out.println("6");
+        System.out.println("7");
+        System.out.println("8");
+        System.out.println("9. Salir");
         System.out.println("Selecciona una opcion: ");
         
         opcion = scanner.nextInt();
@@ -26,11 +26,13 @@ public class App {
             case 1 -> taller.crearCliente();
             case 2 -> taller.crearVehiculo();
             case 3 -> taller.crearServicio();
-            case 8 -> System.out.println("Saliendo del programa");   
+            case 4 -> taller.crearEmpleado(); 
+            case 5 -> taller.asignarServicio();          
+            case 9 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
             
-        }while(opcion != 8);
+        }while(opcion != 9);
         
         
     }
