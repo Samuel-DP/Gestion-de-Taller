@@ -1,7 +1,9 @@
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
+
         Scanner scanner = new Scanner(System.in);
         
         int opcion;
@@ -33,7 +35,21 @@ public class App {
         }   
             
         }while(opcion != 9);
+      
+      Empezar
+
+        System.out.println("Hola");
+
+        Connection conexion = ConexionBD.conectar();
+        if (conexion != null) {
+        System.out.println("Conexión establecida correctamente.");
+        } else {
+        System.out.println("No se pudo establecer la conexión.");
+        }
+    
         
         
     }
 }
+
+
