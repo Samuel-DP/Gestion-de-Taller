@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,4 +29,7 @@ public class Vehiculo{
     public String getMarca(){return this.marca;}
     public String getModelo(){return this.modelo;}
     public String getMatricula(){return this.matricula;}
+    public int getAño(){return this.año;}
+    public int getKm(){return this.km;}
+    public String getNbastidor(){return this.nBastidor;}
 }

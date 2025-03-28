@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import model.Cliente;
+import model.Empleado;
+import model.Servicio;
+import model.Vehiculo;
 
 
 public class Taller {

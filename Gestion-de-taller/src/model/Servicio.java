@@ -1,3 +1,5 @@
+package model;
+
 public class Servicio {
     
     private String descripcion;
@@ -14,7 +16,13 @@ public class Servicio {
         this.horas = horas;
         
     }
- 
+
+    public String getDescripcion(){ return this.descripcion; }
+    public Double getPrecio(){ return this.precio; }
+    public Double getHoras(){ return this.horas; }
+    public Empleado getEmpleado(){ return this.empleado; }
+    public Vehiculo geVehiculo(){ return this.vehiculo; }
+
     public void asignarEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
@@ -22,5 +30,5 @@ public class Servicio {
     public void asignarVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
-    public String getDescripcion(){return descripcion;}
+    
 }
