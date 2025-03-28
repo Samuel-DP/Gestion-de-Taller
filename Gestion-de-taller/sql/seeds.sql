@@ -42,7 +42,7 @@ CREATE TABLE inventario(
 );
 
 CREATE TABLE proveedores(
-    id_proveedor INT PRIMARY KEY,
+    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
     direccion VARCHAR(50),
     telefono INT,
