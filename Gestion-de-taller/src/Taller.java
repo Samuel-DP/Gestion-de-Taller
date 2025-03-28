@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 
 public class Taller {
+    private List<Cliente> clientes = new ArrayList<>();
     private List<Servicio> servicios = new ArrayList<>();
     private List<Empleado> empleados = new ArrayList<>();
     private List<Vehiculo> vehiculos = new ArrayList<>();
@@ -173,4 +174,6 @@ public class Taller {
         System.out.println("Empleado: " + empleado.getNombre() + " " + empleado.getApellido());
         System.out.println("Vehículo: " + vehiculo.getMarca() + " " + vehiculo.getModelo() + " (" + vehiculo.getMatricula() + ")");
     }
+   
 }
+

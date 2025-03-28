@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vehiculo{
 
@@ -8,6 +9,8 @@ public class Vehiculo{
     private int año;
     private int km;
     private String nBastidor;
+
+    private List<Servicio> servicios = new ArrayList<>();
 
     public Vehiculo(String matricula,String marca, String modelo, int año, int km, String nBastidor  ){
         this.matricula = matricula;

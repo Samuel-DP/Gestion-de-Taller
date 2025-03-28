@@ -4,6 +4,8 @@ public class Servicio {
     private Double precio;
     private Double horas;
     
+    private Empleado empleado;
+    private Vehiculo vehiculo;
 
     public Servicio(String descripcion, Double precio, Double horas){
         
