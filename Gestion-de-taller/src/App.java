@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.util.Scanner;
 
+import dao.ConexionBD;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -15,7 +17,7 @@ public class App {
         System.out.println("3. Crear servicio");
         System.out.println("4. Crear empleado");
         System.out.println("5. Asignar servicio");
-        System.out.println("6");
+        System.out.println("6. Gestion de inventario");
         System.out.println("7");
         System.out.println("8");
         System.out.println("9. Salir");
@@ -29,14 +31,15 @@ public class App {
             case 2 -> taller.crearVehiculo();
             case 3 -> taller.crearServicio();
             case 4 -> taller.crearEmpleado(); 
-            case 5 -> taller.asignarServicio();          
+            case 5 -> taller.asignarServicio();   
+            case 6 -> taller.gestionInventario();         
             case 9 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
             
         }while(opcion != 9);
       
-      Empezar
+      
 
         System.out.println("Hola");
 

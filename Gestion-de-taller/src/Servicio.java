@@ -4,6 +4,8 @@ public class Servicio {
     private Double precio;
     private Double horas;
     
+    private Empleado empleado;
+    private Vehiculo vehiculo;
 
     public Servicio(String descripcion, Double precio, Double horas){
         
@@ -12,5 +14,13 @@ public class Servicio {
         this.horas = horas;
         
     }
-
+ 
+    public void asignarEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    
+    public void asignarVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+    public String getDescripcion(){return descripcion;}
 }
