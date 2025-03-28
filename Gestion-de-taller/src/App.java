@@ -38,8 +38,7 @@ public class App {
         }   
             
         }while(opcion != 9);
-      
-      
+
 
         System.out.println("Hola");
 
