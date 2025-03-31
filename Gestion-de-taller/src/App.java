@@ -1,7 +1,6 @@
+import dao.ConexionBD;
 import java.sql.Connection;
 import java.util.Scanner;
-
-import dao.ConexionBD;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -32,7 +31,7 @@ public class App {
             case 3 -> taller.crearServicio();
             case 4 -> taller.crearEmpleado(); 
             case 5 -> taller.asignarServicio();   
-            case 6 -> taller.gestionInventario();         
+                 
             case 9 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
