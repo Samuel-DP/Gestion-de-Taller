@@ -1,14 +1,15 @@
 package view;
 
+import dao.ClientesDao;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import model.Cliente;
 
 public class ClienteView {
-    private final List<Cliente> clientes = new ArrayList<>();
-    private final Scanner scanner = new Scanner(System.in);
-    private final ClientesDao ClientesDao = new ClientesDao();
+    private ArrayList<Cliente> clientes = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
+    private Cliente cliente;
+    private ClientesDao ClientesDao = new ClientesDao();
 
     public Cliente crearCliente() {
         String nombreCliente;
@@ -27,51 +28,72 @@ public class ClienteView {
 
         Cliente cliente = new Cliente(nombreCliente, apellidoCliente, dniCliente, telefonoCliente);
         clientes.add(cliente);
+        ClientesDao.insertar(cliente);
         return cliente;
         
     }
 
-    public gestionarCliente() {
+    public void gestionarCliente() {
+        String dni = cliente.getDni();
         int opcion;
         do { 
-            System.out.println("1. Insertar cliente en la base de datos");
-            System.out.println("2. Eliminar cliente de la base de datos");
-            System.out.println("3. Buscar cliente por ID");
-            System.out.println("4. Mostrar todos los clientes");
-            System.out.println("5. Salir");
+            System.out.println("1. Eliminar cliente");
+            System.out.println("2. Actualizar datos cliente");
+            System.out.println("3. Mostrar todos los clientes");
+            System.out.println("4. Salir");
             opcion = scanner.nextInt();
             scanner.nextLine(); 
 
-        } while (opcion != 5);
-    }
+            switch(opcion) {
+                case 1 -> {
+                    System.out.println("Ingrese el DNI del cliente a eliminar: ");
+                    dni = scanner.nextLine();
+                    ClientesDao.eliminar(dni);
+                }
+                case 2 -> {
+                    int respuesta;
+                    do { 
+                        System.out.println("1. Actualizar nombre");
+                        System.out.println("2. Actualizar apellido");
+                        System.out.println("3. Actualizar DNI");
+                        System.out.println("4. Actualizar telefono");
+                        System.out.println("5. Salir");
+                        respuesta = scanner. nextInt();
 
-    switch(opcion) {
-        case 1 -> {
-            ClientesDao.insertar(cliente);
-        }
-        case 2 -> {
-            System.out.println("Ingrese el ID del cliente a eliminar: ");
-            int id_cliente = scanner.nextInt();
-            ClientesDao.eliminar(id_cliente);
-        }
-        case 3 -> {
-            System.out.println("Ingrese el ID del cliente a buscar: ");
-            int id_cliente = scanner.nextInt();
-            Cliente clienteBuscado = ClientesDao.buscarPorId(id_cliente);
-            if (clienteBuscado != null) {
-                System.out.println(clienteBuscado.toString());
-            } else {
-                System.out.println("Cliente no encontrado.");
+                        switch(respuesta){
+                            case 1 -> {
+                                System.out.println("Ingrese el nuevo nombre: ");
+                                String nombre = scanner.nextLine();
+                                ClientesDao.ActualizarNombre(dni, nombre);
+                            }
+                            case 2 -> {
+                                System.out.println("Ingrese el nuevo apellido: ");
+                                String apellido = scanner.nextLine();
+                                ClientesDao.ActualizarApellido(dni, apellido);
+                            }
+                            case 3 -> {
+                                System.out.println("Ingrese el nuevo DNI: ");
+                                String nuevoDni = scanner.nextLine();
+                                ClientesDao.ActualizarDni(dni, nuevoDni);
+                            }
+                            case 4 -> {
+                                System.out.println("Ingrese el nuevo telefono: ");
+                                int tlf = scanner.nextInt();
+                                ClientesDao.ActualizarTelefono(dni, tlf);    
+                            }
+                        }
+                    } while (respuesta!= 5);
+                }
+                case 3 -> {
+                    System.out.println("Mostrando todos los clientes...");
+                    ArrayList<Cliente> listaClientes = ClientesDao.obtenerTodos();
+                    for (Cliente c : listaClientes) {
+                        System.out.println(c.toString());
+                    }
+                }
+                default -> System.out.println("Opción no válida, intente nuevamente.");
             }
-        }
-        case 4 -> {
-            System.out.println("Mostrando todos los clientes...");
-            List<Cliente> listaClientes = ClientesDao.obtenerTodos();
-            for (Cliente c : listaClientes) {
-                System.out.println(c.toString());
-            }
-        }
-        default -> System.out.println("Opción no válida, intente nuevamente.");
-    }
 
+        } while (opcion != 4);
+    }
 }
