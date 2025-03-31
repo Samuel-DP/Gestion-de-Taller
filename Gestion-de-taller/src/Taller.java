@@ -81,7 +81,7 @@ public class Taller {
         String nombreEmpleado;
         String apellidoEmpleado;
         String dniEmpleado;
-        int puestoEmpleado;
+        String puestoEmpleado;
         int salarioEmpleado;
 
         System.out.println("Ingresa un nombre: ");
@@ -91,7 +91,7 @@ public class Taller {
         System.out.println("Ingrese el DNI: ");
         dniEmpleado = scanner.nextLine();
         System.out.println("Ingrese el puesto: ");
-        puestoEmpleado = scanner.nextInt();
+        puestoEmpleado = scanner.nextLine();
         System.out.println("Ingrese el salario: ");
         salarioEmpleado = scanner.nextInt();
 
@@ -136,13 +136,13 @@ public class Taller {
             System.out.println("Ingrese el DNI del empleado:");
             String dniEmpleado = scanner.nextLine();
             System.out.println("Ingrese el puesto del empleado:");
-            int puestoEmpleado = scanner.nextInt();
+            String puestoEmpleado = scanner.nextLine();
             System.out.println("Ingrese el salario del empleado:");
             int salarioEmpleado = scanner.nextInt();
             empleado = new Empleado(nombreEmpleado,apellidoEmpleado, dniEmpleado,puestoEmpleado, salarioEmpleado); // Ejemplo, deberías buscar el empleado real
         }
         
-        // Seleccionar vehículo
+        
         System.out.println("=== Seleccionar Vehículo ===");
         System.out.println("¿Desea crear un nuevo vehículo (1) o seleccionar uno existente (2)?");
         opcion = scanner.nextInt();

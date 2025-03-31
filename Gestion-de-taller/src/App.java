@@ -30,6 +30,7 @@ public class App {
 
         
         switch (opcion) {
+            
             case 1 -> cliente.crearCliente();
             case 2 -> cliente.gestionarCliente();
             case 3 -> taller.crearVehiculo();
