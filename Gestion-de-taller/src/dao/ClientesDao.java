@@ -1,3 +1,4 @@
+package dao;
 
 import java.lang.reflect.Array;
 import java.sql.Connection;
@@ -39,11 +40,31 @@ public class ClientesDao{
             e.printStackTrace();
         }
      }
-    public Cliente buscarPorId(int id_cliente){
-        
-     }
-    public ArrayList<Cliente> obtenerTodos(){ 
 
+    public ArrayList<Cliente> obtenerTodos(){ 
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        String sql = "SELECT * FROM clientes";
+        
+        try (Connection conn = ConexionDB.obtenerConexion();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                int id_cliente = rs.getInt("id_cliente");
+                String nombre = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                String dni = rs.getString("dni");
+                int telefono = rs.getInt("telefono");
+                
+                Cliente cliente = new Cliente(nombre, apellido, dni, telefono);
+                clientes.add(cliente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return clientes;
     }
 
 }
