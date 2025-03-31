@@ -1,11 +1,21 @@
 package view;
 
 import java.util.Scanner;
+import model.Empleado;
+import model.Servicio;
+import model.Vehiculo;
 
 
 public class AsignarServicioView {
     Scanner scanner = new Scanner(System.in);
     ServicioView servicioView = new ServicioView();
+    Servicio servicio = servicioView.crearServicio();
+
+    EmpleadoView empleadoView = new EmpleadoView();
+    Empleado empleado = empleadoView.crearEmpleado();
+
+    VehiculoView vehiculoView = new VehiculoView();
+    Vehiculo vehiculo = vehiculoView.crearVehiculo();
 
      public void asignarServicio() {
         System.out.println("=== Asignar Servicio ===");
@@ -14,9 +24,8 @@ public class AsignarServicioView {
         int opcion = scanner.nextInt();
         scanner.nextLine();
         
-        ServicioView servicioView;
         if (opcion == 1) {
-            servicioView = crearServicio();
+            servicio = servicioView.crearServicio();
         } else {
             System.out.println("Ingrese la descripción del servicio a asignar:");
             String descripcion = scanner.nextLine();
@@ -32,9 +41,9 @@ public class AsignarServicioView {
         opcion = scanner.nextInt();
         scanner.nextLine();
         
-        Empleado empleado;
+    
         if (opcion == 1) {
-            empleado = crearEmpleado();
+            empleado = empleadoView.crearEmpleado();
         } else {
             System.out.println("Ingrese el nombre del empleado:");
             String nombreEmpleado = scanner.nextLine();
@@ -55,9 +64,9 @@ public class AsignarServicioView {
         opcion = scanner.nextInt();
         scanner.nextLine();
         
-        Vehiculo vehiculo;
+        
         if (opcion == 1) {
-            vehiculo = crearVehiculo();
+            vehiculo = vehiculoView.crearVehiculo();
         } else {
             System.out.println("Ingrese la matricula del vehículo:");
             String matricula = scanner.nextLine();
