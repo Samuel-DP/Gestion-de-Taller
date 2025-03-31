@@ -12,6 +12,7 @@ public class App {
         Taller taller = new Taller();
         System.out.println("Gestion de taller");
         System.out.println("1. Registrar cliente");
+        System.out.println("1. Gestionar cliente");
         System.out.println("2. Registrar vehiculo");
         System.out.println("3. Crear servicio");
         System.out.println("4. Crear empleado");
