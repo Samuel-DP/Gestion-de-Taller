@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConexionBD {
+public class ConexionDB {
     // URL de conexión a la base de datos MySQL
     private static final String URL =
    "jdbc:mysql://localhost:3306/gestion_taller"; // Cambia el nombre de la base de datos

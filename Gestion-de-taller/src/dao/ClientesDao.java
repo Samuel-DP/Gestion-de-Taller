@@ -1,19 +1,17 @@
 package dao;
 
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
 import model.Cliente;
 
 public class ClientesDao{
     public void insertar(Cliente cliente){
         String sql = "INSERT INTO clientes (nombre, Apellido, Dni, telefono) VALUES (?, ?, ?, ?)";
         
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, cliente.getNombre());
@@ -31,7 +29,7 @@ public class ClientesDao{
     public void ActualizarNombre(String dni, String nombre) {
         String sql = "UPDATE clientes SET nombre = ? WHERE dni = ?";
             
-    try (Connection conn = ConexionDB.obtenerConexion();
+    try (Connection conn = ConexionDB.conectar();
         PreparedStatement stmt = conn.prepareStatement(sql)) {
         
         stmt.setString(1, nombre);
@@ -46,7 +44,7 @@ public class ClientesDao{
         public void ActualizarApellido(String dni, String apellido) {
         String sql = "UPDATE clientes SET apellido = ? WHERE dni = ?";
         
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, apellido);
@@ -61,7 +59,7 @@ public class ClientesDao{
     public void ActualizarDni(String dniActual, String nuevoDni) {
         String sql = "UPDATE clientes SET dni = ? WHERE dni = ?";
         
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, nuevoDni);
@@ -76,7 +74,7 @@ public class ClientesDao{
     public void ActualizarTelefono(String dni, int telefono) {
         String sql = "UPDATE clientes SET telefono = ? WHERE dni = ?";
         
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setInt(1, telefono);
@@ -91,7 +89,7 @@ public class ClientesDao{
     public void eliminar(String dni) {
         String sql = "DELETE FROM clientes WHERE dni = ?";
         
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, dni);
@@ -106,7 +104,7 @@ public class ClientesDao{
         ArrayList<Cliente> clientes = new ArrayList<>();
         String sql = "SELECT * FROM clientes";
         
-        try (Connection conn = ConexionDB.obtenerConexion();
+        try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             ResultSet rs = stmt.executeQuery();
@@ -127,4 +125,29 @@ public class ClientesDao{
         return clientes;
     }
 
+    public Cliente obtenerPorDni(String dni) {
+        String sql = "SELECT * FROM clientes WHERE dni = ?";
+        Cliente cliente = null;
+        
+        try (Connection conn = ConexionDB.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, dni);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                String nombre = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                int telefono = rs.getInt("telefono");
+                
+                cliente = new Cliente(nombre, apellido, dni, telefono);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return cliente;
+    }
+
 }
+
