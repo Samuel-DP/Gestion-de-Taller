@@ -40,7 +40,8 @@ public class ClienteView {
             System.out.println("1. Eliminar cliente");
             System.out.println("2. Actualizar datos cliente");
             System.out.println("3. Mostrar todos los clientes");
-            System.out.println("4. Salir");
+            System.out.println("4. Mostrar datos de un cliente");
+            System.out.println("5. Salir");
             opcion = scanner.nextInt();
             scanner.nextLine(); 
 
@@ -91,9 +92,19 @@ public class ClienteView {
                         System.out.println(c.toString());
                     }
                 }
+                case 4 -> {
+                    System.out.println("Ingrese el DNI del cliente: ");
+                    dni = scanner.nextLine();
+                    Cliente cliente = ClientesDao.obtenerPorDni(dni);
+                    if (cliente != null) {
+                        System.out.println(cliente.toString());
+                    } else {
+                        System.out.println("Cliente no encontrado.");
+                    }
+                }
                 default -> System.out.println("Opción no válida, intente nuevamente.");
             }
 
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
 }

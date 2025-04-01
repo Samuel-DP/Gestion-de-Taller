@@ -20,12 +20,10 @@ public class Empleado {
         this.puesto = puesto;
         this.salario = salario;
     }
-    public void agregarServicio(Servicio servicio) {
-        this.servicios.add(servicio);
-    }
+    
     public String getNombre() {return this.nombre;}
     public String getApellido() {return this.apellidos;}
-    public String getADni() {return this.dni;}
+    public String getDni() {return this.dni;}
     public String getPuesto() {return this.puesto;}
     public double getSalario() {return this.salario;}
 }

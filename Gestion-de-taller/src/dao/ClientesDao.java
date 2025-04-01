@@ -126,4 +126,29 @@ public class ClientesDao{
         return clientes;
     }
 
+    public Cliente obtenerPorDni(String dni) {
+        String sql = "SELECT * FROM clientes WHERE dni = ?";
+        Cliente cliente = null;
+        
+        try (Connection conn = ConexionDB.conectar();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, dni);
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                String nombre = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                int telefono = rs.getInt("telefono");
+                
+                cliente = new Cliente(nombre, apellido, dni, telefono);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return cliente;
+    }
+
 }
+

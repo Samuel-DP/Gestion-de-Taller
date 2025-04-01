@@ -2,12 +2,14 @@ import dao.ConexionDB;
 import java.sql.Connection;
 import java.util.Scanner;
 import view.ClienteView;
+import view.EmpleadoView;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
         ClienteView cliente = new ClienteView();
+        EmpleadoView empleado = new EmpleadoView();
         Taller taller = new Taller();
         int opcion;
 
@@ -19,6 +21,7 @@ public class App {
         System.out.println("3. Registrar vehiculo");
         System.out.println("4. Crear servicio");
         System.out.println("5. Crear empleado");
+        System.out.println("6. Gestionar empleado");
         System.out.println("6. Asignar servicio");
         System.out.println("7. Gestion de inventario");
         System.out.println("");
@@ -35,8 +38,9 @@ public class App {
             case 2 -> cliente.gestionarCliente();
             case 3 -> taller.crearVehiculo();
             case 4 -> taller.crearServicio();
-            case 5 -> taller.crearEmpleado(); 
-            case 6 -> taller.asignarServicio();   
+            case 5 -> empleado.crearEmpleado(); 
+            case 6 -> empleado.gestionarEmpleado();
+            //case 6 -> taller.asignarServicio();   
            // case 7 -> taller.gestionInventario();         
             case 9 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
