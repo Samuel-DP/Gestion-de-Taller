@@ -1,9 +1,11 @@
 package view;
+
 import java.util.Scanner;
 import model.Vehiculo;
 
 public class VehiculoView {
     Scanner scanner = new Scanner(System.in);
+    
       public Vehiculo crearVehiculo(){
         
         String matriculaVehiculo;
@@ -29,4 +31,6 @@ public class VehiculoView {
         Vehiculo vehiculo = new Vehiculo(matriculaVehiculo, marcaVehiculo, modeloVehiculo, añoVehiculo, kmVehiculo, nBastidorVehiculo);
         return vehiculo;
     }
+    
 }
+ 

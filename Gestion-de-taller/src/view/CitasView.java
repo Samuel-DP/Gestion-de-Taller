@@ -1,48 +1,39 @@
 package view;
 
+import java.util.Scanner;
+import model.Vehiculo;
+import model.Citas;
 public class CitasView {
-    private String fecha;
-    private String hora;
-    private String clienteDni;
-    private String vehiculoMatricula;
-    private String servicioNombre;
+    Vehiculo vehiculo;
+    Citas cita;
+    Scanner scanner = new Scanner(System.in);
 
-    public CitasView(String fecha, String hora, String clienteDni, String vehiculoMatricula, String servicioNombre) {
-        this.fecha = fecha;
-        this.hora = hora;
-        this.clienteDni = clienteDni;
-        this.vehiculoMatricula = vehiculoMatricula;
 
-        this.servicioNombre = servicioNombre;
-    }
+    public static void crearCita() {
+        System.out.print("Ingrese la fecha (00-00-0000): ");
+        String fecha = scanner.nextLine();
 
-    public void mostrarCita() {
-        System.out.println("Fecha: " + fecha);
-        System.out.println("Hora: " + hora);
-        System.out.println("Cliente DNI: " + clienteDni);
-        System.out.println("Vehículo Matrícula: " + vehiculoMatricula);
-        System.out.println("Servicio Nombre: " + servicioNombre);
-    }
+        System.out.print("Ingrese la hora (HH:MM): ");
+        String hora = scanner.nextLine();
 
-   
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-    public String getClienteDni() {
-        return clienteDni;
-    }
-    public void setClienteDni(String clienteDni) {
-        this.clienteDni = clienteDni;
-    }
-    public String getVehiculoMatricula() {
-        return vehiculoMatricula;
-    }
-    public void setVehiculoMatricula(String vehiculoMatricula) {
-        this.vehiculoMatricula = vehiculoMatricula;
-    }
-    
+        System.out.print("Ingrese el DNI del cliente: ");
+        String clienteDni = scanner.nextLine();
 
+        System.out.print("Ingrese la matrícula del vehículo: ");
+        String matricula = scanner.nextLine();
+     
+
+        Vehiculo vehiculo = buscarVehiculo(matricula);
+        if (vehiculo == null) {
+            System.out.println("Vehículo no encontrado.");
+            return;
+        }
+
+        System.out.print("Ingrese la descripción de la cita: ");
+        String descripcion = scanner.nextLine();
+
+        Citas cita = new Citas(fecha, hora, vehiculo, descripcion);
+        agregarCita(cita);
+        System.out.println("Cita creada con éxito.");
+    }
 }
