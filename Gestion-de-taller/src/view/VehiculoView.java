@@ -24,9 +24,11 @@ public class VehiculoView {
         System.out.println("Ingrese un modelo: ");
         modeloVehiculo = scanner.nextLine();
         System.out.println("Ingrese un año: ");
-        añoVehiculo = scanner.nextInt();        
+        añoVehiculo = scanner.nextInt();  
+        scanner.nextLine();      
         System.out.println("Ingrese kms del vehiculo: ");
         kmVehiculo = scanner.nextInt();
+        scanner.nextLine(); 
         System.out.println("Ingrese el numero de bastidor: ");
         nBastidorVehiculo = scanner.nextLine();
 
@@ -45,9 +47,9 @@ public class VehiculoView {
         System.out.println("4. Mostrar datos de un vehiculo ");
         System.out.println("5. Salir  ");
         respuesta = scanner.nextInt();
+        scanner.nextLine();
 
         switch(respuesta){
-          
           case 1 ->{
             System.out.println("Ingrese la matricula del vehiculo a eliminar");
             String matricula = scanner.nextLine();
@@ -57,6 +59,10 @@ public class VehiculoView {
           case 2 ->{
             System.out.println("Introduzca la matricula del coche que desee cambiar");
             String matricula = scanner.nextLine();
+            if (vehiculosDao.buscarVehiculo(matricula) == null) {
+              System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+              return;
+            }
             int opcion = 0;
             do { 
               System.out.println("Que desea actualizar");
@@ -68,8 +74,9 @@ public class VehiculoView {
               System.out.println("6. Nº bastidor ");
               System.out.println("7. Salir ");
               opcion = scanner.nextInt();
+              scanner.nextLine();
 
-              switch(respuesta){
+              switch(opcion){
                 case 1 -> {
                   System.out.println("Introduzca la nueva matricula: ");
                   String matriculaNueva = scanner.nextLine();

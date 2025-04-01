@@ -1,14 +1,12 @@
 package dao;
 
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import model.Empleado;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import model.Empleado;
 
 
 public class EmpleadoDao {
@@ -40,6 +38,10 @@ public class EmpleadoDao {
             
             stmt.setString(1, dniEmpleado);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Empleado eliminado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,6 +57,10 @@ public class EmpleadoDao {
             stmt.setString(1, nombre);
             stmt.setString(2, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Nombre actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,6 +76,10 @@ public class EmpleadoDao {
             stmt.setString(1, apellido);
             stmt.setString(2, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Apellido actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,6 +95,10 @@ public class EmpleadoDao {
             stmt.setString(1, puesto);
             stmt.setString(2, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Puesto actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,6 +114,10 @@ public class EmpleadoDao {
             stmt.setDouble(1, salario);
             stmt.setString(2, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Salario actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -115,6 +133,10 @@ public class EmpleadoDao {
             stmt.setString(1, nuevoDni);
             stmt.setString(2, dniActual);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                return;
+            }
             System.out.println("DNI actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -164,6 +186,8 @@ public class EmpleadoDao {
                 double salario = rs.getDouble("salario");
                 
                 empleado = new Empleado(nombre, apellidos, dni, puesto, salario);
+            }else {
+                System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
             }
         } catch (SQLException e) {
             e.printStackTrace();

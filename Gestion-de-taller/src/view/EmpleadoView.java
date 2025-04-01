@@ -55,6 +55,10 @@ private EmpleadoDao empleadoDao = new EmpleadoDao();
                 case 2 -> {
                     System.out.println("Ingrese el DNI del empleado a actualizar: ");
                     dni = scanner.nextLine();
+                    if (empleadoDao.obtenerPorDni(dni) == null) {
+                        System.out.println("Empleado no encontrado.");
+                        break;
+                    }
                     int respuesta;
                     do { 
                         System.out.println("1. Actualizar nombre");

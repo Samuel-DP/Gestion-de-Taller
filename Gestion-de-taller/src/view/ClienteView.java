@@ -53,6 +53,10 @@ public class ClienteView {
                 case 2 -> {
                     System.out.print("Ingrese el DNI del cliente a actualizar: "); 
                     dni = scanner.nextLine();
+                    if (ClientesDao.obtenerPorDni(dni) == null) {
+                        System.out.println("Cliente no encontrado.");
+                        break;
+                    }
                     int respuesta;
                     do { 
                         System.out.println("1. Actualizar nombre");

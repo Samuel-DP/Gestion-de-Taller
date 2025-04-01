@@ -31,6 +31,11 @@ public class VehiculosDao {
         var statement = connection.prepareStatement(sql)){
             statement.setString(1, matricula);
             statement.executeUpdate();
+
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("vehiculo eliminado correctamente");
 
         } catch (Exception e) {
@@ -46,6 +51,10 @@ public class VehiculosDao {
             statement.setString(1, matriculaNueva);
             statement.setString(2, matriculaVieja);
             statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("Matricula actualizada");
 
         } catch (Exception e) {
@@ -61,6 +70,10 @@ public class VehiculosDao {
             statement.setString(1, marcaNueva);
             statement.setString(2, matricula);
             statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("Marca actualizada");
 
         } catch (Exception e) {
@@ -76,6 +89,10 @@ public class VehiculosDao {
             statement.setString(1, modeloNuevo);
             statement.setString(2, matricula);
             statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("Modelo actualizado");
 
         } catch (Exception e) {
@@ -91,6 +108,10 @@ public class VehiculosDao {
             statement.setInt(1, añoNuevo);
             statement.setString(2, matricula);
             statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("Año actualizado");
 
         } catch (Exception e) {
@@ -106,6 +127,10 @@ public class VehiculosDao {
             statement.setInt(1, kmNuevo);
             statement.setString(2, matricula);
             statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("Kilometros actualizados");
 
         } catch (Exception e) {
@@ -121,6 +146,10 @@ public class VehiculosDao {
             statement.setString(1, nBastidorNuevo);
             statement.setString(2, matricula);
             statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún vehículo con la matrícula proporcionada.");
+                return;
+            }
             System.out.println("Nº de bastidor actualizado");
 
         } catch (Exception e) {
@@ -182,4 +211,29 @@ public class VehiculosDao {
         }
     }
 
+    public Vehiculo buscarVehiculo(String matricula) {
+        String sql = "SELECT * FROM vehiculos WHERE matricula = ?";
+        Vehiculo vehiculo = null;
+
+        try (var connection = ConexionDB.conectar(); 
+        var statement = connection.prepareStatement(sql)) {
+            statement.setString(1, matricula);
+            var resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                String marca = resultSet.getString("marca");
+                String modelo = resultSet.getString("modelo");
+                int año = resultSet.getInt("año");
+                int km = resultSet.getInt("km");
+                String nBastidor = resultSet.getString("nBastidor");
+
+                vehiculo = new Vehiculo(matricula, marca, modelo, año, km, nBastidor);
+            } else {
+                System.out.println("Vehículo no encontrado.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vehiculo;
+    }
 }
