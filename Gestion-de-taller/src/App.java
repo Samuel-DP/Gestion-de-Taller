@@ -1,4 +1,4 @@
-import dao.ConexionBD;
+import dao.ConexionDB;
 import java.sql.Connection;
 import java.util.Scanner;
 import view.ClienteView;
@@ -45,7 +45,7 @@ public class App {
         }while(opcion != 9);
 
 
-        Connection conexion = ConexionBD.conectar();
+        Connection conexion = ConexionDB.conectar();
         if (conexion != null) {
         System.out.println("Conexión establecida correctamente.");
         } else {

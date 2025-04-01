@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConsultaDB {
     public static void obtenerClientes() {
         // Establecer conexión
-        Connection conexion = ConexionBD.conectar();
+        Connection conexion = ConexionDB.conectar();
         
         if (conexion != null) {
             // Consulta SQL para obtener todos los clientes
