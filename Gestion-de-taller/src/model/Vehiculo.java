@@ -12,6 +12,7 @@ public class Vehiculo{
     private String nBastidor;
 
     private List<Servicio> servicios = new ArrayList<>();
+    private List<Vehiculo> listaVehiculos = new ArrayList<>();  
 
     public Vehiculo(String matricula,String marca, String modelo, int año, int km, String nBastidor  ){
         this.matricula = matricula;
@@ -25,6 +26,14 @@ public class Vehiculo{
     public String getnBastidor() { return this.nBastidor; }
     public void agregarServicio(Servicio servicio) {
         this.servicios.add(servicio);
+    }
+    public Vehiculo buscarVehiculo(String matricula) {
+        for (Vehiculo vehiculo : listaVehiculos) {
+            if (vehiculo.getMatricula().equals(matricula)) {
+                return vehiculo;
+            }
+        }
+        return null; 
     }
     public String getMarca(){return this.marca;}
     public String getModelo(){return this.modelo;}

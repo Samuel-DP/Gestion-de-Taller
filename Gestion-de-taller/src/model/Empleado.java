@@ -13,7 +13,7 @@ public class Empleado {
     private double salario;
     private List<Servicio> servicios = new ArrayList<>();
 
-    public Empleado(String nombre, String apellidos, String dni, String puesto, int salario) {
+    public Empleado(String nombre, String apellidos, String dni, String puesto, double salario) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;

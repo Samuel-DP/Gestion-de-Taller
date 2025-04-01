@@ -5,7 +5,6 @@ import model.Empleado;
 import model.Servicio;
 import model.Vehiculo;
 
-
 public class AsignarServicioView {
     Scanner scanner = new Scanner(System.in);
     ServicioView servicioView = new ServicioView();
