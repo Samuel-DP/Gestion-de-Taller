@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cliente;
 
-
 public class ClientesDao{
+
     public void insertar(Cliente cliente){
         String sql = "INSERT INTO clientes (nombre, Apellido, Dni, telefono) VALUES (?, ?, ?, ?)";
         
@@ -51,6 +51,10 @@ public class ClientesDao{
             stmt.setString(1, apellido);
             stmt.setString(2, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún cliente con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Apellido actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,6 +70,10 @@ public class ClientesDao{
             stmt.setString(1, nuevoDni);
             stmt.setString(2, dniActual);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún cliente con el DNI proporcionado.");
+                return;
+            }
             System.out.println("DNI actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,6 +89,10 @@ public class ClientesDao{
             stmt.setInt(1, telefono);
             stmt.setString(2, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún cliente con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Teléfono actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -95,6 +107,10 @@ public class ClientesDao{
             
             stmt.setString(1, dni);
             stmt.executeUpdate();
+            if (stmt.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún cliente con el DNI proporcionado.");
+                return;
+            }
             System.out.println("Cliente eliminado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -142,6 +158,8 @@ public class ClientesDao{
                 int telefono = rs.getInt("telefono");
                 
                 cliente = new Cliente(nombre, apellido, dni, telefono);
+            }else {
+                System.out.println("No se encontró ningún cliente con el DNI proporcionado.");
             }
         } catch (SQLException e) {
             e.printStackTrace();

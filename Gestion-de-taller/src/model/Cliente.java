@@ -1,21 +1,20 @@
 package model;
 public class Cliente {
     
-    private int id;
     private String nombre;
-    private String apellidos;
+    private String apellido;
     private String dni;
     private int telefono;
 
-    public Cliente(String nombre, String apellidos, String dni, int telefono) {
+    public Cliente(String nombre, String apellido, String dni, int telefono) {
         this.nombre = nombre;
-        this.apellidos = apellidos;
+        this.apellido = apellido;
         this.dni = dni;
         this.telefono = telefono;
     }
 
     public String getNombre() { return this.nombre; }
-    public String getApellido() { return this.apellidos; }
+    public String getApellido() { return this.apellido; }
     public String getDni() { return this.dni; }
     public int getTelefono() { return this.telefono; }
 }

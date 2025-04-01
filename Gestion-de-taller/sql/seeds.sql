@@ -6,23 +6,6 @@ CREATE TABLE clientes(
     telefono INT NOT NULL
 );
 
-CREATE TABLE vehiculos(
-    id_vehiculo INT AUTO_INCREMENT PRIMARY KEY,
-    matricula VARCHAR(15) NOT NULL,
-    marca VARCHAR(10) NOT NULL,
-    modelo VARCHAR(10)NOT NULL,
-    año INT NOT NULL,
-    kilometros INT NOT NULL,
-    num_bastidor VARCHAR(30) NOT NULL
-);
-
-CREATE TABLE servicios(
-    id_servicio INT AUTO_INCREMENT PRIMARY KEY,
-    descripcion VARCHAR(150) NOT NULL,
-    precio DEC(10.2) NOT NULL,
-    horas INT NOT NULL
-);
-
 CREATE TABLE empleados(
     id_empleado INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
@@ -30,6 +13,25 @@ CREATE TABLE empleados(
     dni VARCHAR(15) NOT NULL,
     puesto VARCHAR(20)NOT NULL,
     salario DEC(10.2)NOT NULL CHECK (salario > 0) 
+);
+
+CREATE TABLE vehiculos(
+    id_vehiculo INT AUTO_INCREMENT PRIMARY KEY,
+    matricula VARCHAR(15) NOT NULL,
+    marca VARCHAR(10) NOT NULL,
+    modelo VARCHAR(10)NOT NULL,
+    año INT NOT NULL,
+    km INT NOT NULL,
+    nBastidor VARCHAR(30) NOT NULL
+);
+
+--TABLAS CREADAS HASTA AQUI
+
+CREATE TABLE servicios(
+    id_servicio INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(150) NOT NULL,
+    precio DEC(10.2) NOT NULL,
+    horas INT NOT NULL
 );
 
 CREATE TABLE inventario(
