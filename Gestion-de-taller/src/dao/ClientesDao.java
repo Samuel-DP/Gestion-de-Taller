@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cliente;
 
+
 public class ClientesDao{
     public void insertar(Cliente cliente){
         String sql = "INSERT INTO clientes (nombre, Apellido, Dni, telefono) VALUES (?, ?, ?, ?)";

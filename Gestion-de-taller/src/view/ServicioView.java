@@ -11,11 +11,11 @@ public class ServicioView {
     Double horasServicio;
        
     System.out.println("Ingrese una descripcion del servicio: ");
+    descripcionServicio = scanner.nextLine();
     System.out.println("Ingrese un precio por h del servicio: ");
     precioServicio = scanner.nextDouble();
     System.out.println("Ingrese las horas estimadas del servicio: ");
     horasServicio = scanner.nextDouble();
-    descripcionServicio = scanner.nextLine();
     Servicio servicio = new Servicio(descripcionServicio, precioServicio, horasServicio);
     return servicio;
     
