@@ -51,6 +51,8 @@ public class ClienteView {
                     ClientesDao.eliminar(dni);
                 }
                 case 2 -> {
+                    System.out.print("Ingrese el DNI del cliente a actualizar: "); 
+                    dni = scanner.nextLine();
                     int respuesta;
                     do { 
                         System.out.println("1. Actualizar nombre");
@@ -59,6 +61,7 @@ public class ClienteView {
                         System.out.println("4. Actualizar telefono");
                         System.out.println("5. Salir");
                         respuesta = scanner. nextInt();
+                        scanner.nextLine();
 
                         switch(respuesta){
                             case 1 -> {
@@ -79,6 +82,7 @@ public class ClienteView {
                             case 4 -> {
                                 System.out.println("Ingrese el nuevo telefono: ");
                                 int tlf = scanner.nextInt();
+                                scanner.nextLine();
                                 ClientesDao.ActualizarTelefono(dni, tlf);    
                             }
                         }
@@ -101,6 +105,7 @@ public class ClienteView {
                         System.out.println("Cliente no encontrado.");
                     }
                 }
+                case 5 -> System.out.println("Saliendo de gestión de clientes...");
                 default -> System.out.println("Opción no válida, intente nuevamente.");
             }
 

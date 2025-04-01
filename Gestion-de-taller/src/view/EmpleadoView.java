@@ -53,6 +53,8 @@ private EmpleadoDao empleadoDao = new EmpleadoDao();
                     empleadoDao.eliminar(dni);
                 }
                 case 2 -> {
+                    System.out.println("Ingrese el DNI del empleado a actualizar: ");
+                    dni = scanner.nextLine();
                     int respuesta;
                     do { 
                         System.out.println("1. Actualizar nombre");

@@ -21,14 +21,15 @@ public class App {
         System.out.println("1. Registrar cliente");
         System.out.println("2. Gestionar cliente");
         System.out.println("3. Registrar vehiculo");
-        System.out.println("4. Crear servicio");
-        System.out.println("5. Crear empleado");
-        System.out.println("6. Gestionar empleado");
-        System.out.println("6. Asignar servicio");
-        System.out.println("7. Gestion de inventario");
+        System.out.println("4. Gestionar vehiculo");
+        System.out.println("5. Crear servicio");
+        System.out.println("6. Crear empleado");
+        System.out.println("7. Gestionar empleado");
+        System.out.println("8. Asignar servicio");
+        System.out.println("9. Gestion de inventario");
         System.out.println("");
-        System.out.println("8");
-        System.out.println("9. Salir");
+        System.out.println("");
+        System.out.println("10. Salir");
         System.out.println("Selecciona una opcion: ");
         
         opcion = scanner.nextInt();
@@ -39,18 +40,19 @@ public class App {
             case 1 -> cliente.crearCliente();
             case 2 -> cliente.gestionarCliente();
             case 3 -> vehiculo.crearVehiculo();
-            case 4 -> taller.crearServicio();
-            case 5 -> empleado.crearEmpleado(); 
-            case 6 -> empleado.gestionarEmpleado();
+            case 4 -> vehiculo.gestionarVehiculo();
+            //case 5 -> taller.crearServicio();
+            case 6 -> empleado.crearEmpleado(); 
+            case 7 -> empleado.gestionarEmpleado();
             //case 6 -> taller.asignarServicio();   
            // case 7 -> taller.gestionInventario();         
             case 9 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
             
-        }while(opcion != 9);
+        }while(opcion != 10);
 
-        Connection conexion = conexionDB.conectar();
+        Connection conexion = ConexionDB.conectar();
         if (conexion != null) {
         System.out.println("Conexión establecida correctamente.");
         } else {
