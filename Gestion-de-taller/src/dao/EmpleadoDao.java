@@ -21,7 +21,7 @@ public class EmpleadoDao {
             
             stmt.setString(1, empleado.getNombre());
             stmt.setString(2, empleado.getApellido());
-            stmt.setString(3, empleado.getADni());
+            stmt.setString(3, empleado.getDni());
             stmt.setString(4, empleado.getPuesto());
             stmt.setDouble(5, empleado.getSalario());
 

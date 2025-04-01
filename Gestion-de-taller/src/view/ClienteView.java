@@ -8,7 +8,6 @@ import model.Cliente;
 public class ClienteView {
     private ArrayList<Cliente> clientes = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
-    private Cliente cliente;
     private ClientesDao ClientesDao = new ClientesDao();
 
     public Cliente crearCliente() {
@@ -34,7 +33,7 @@ public class ClienteView {
     }
 
     public void gestionarCliente() {
-        String dni = cliente.getDni();
+        String dni = "";
         int opcion;
         do { 
             System.out.println("1. Eliminar cliente");

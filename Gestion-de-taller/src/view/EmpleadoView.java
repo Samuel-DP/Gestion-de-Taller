@@ -35,7 +35,7 @@ private EmpleadoDao empleadoDao = new EmpleadoDao();
     }
 
     public void gestionarEmpleado(){
-        String dni = empleado.getDni();
+        String dni = "";
         int opcion;
         do { 
             System.out.println("1. Eliminar empleado");

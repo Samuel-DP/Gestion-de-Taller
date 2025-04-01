@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.util.Scanner;
 import view.ClienteView;
 import view.EmpleadoView;
+import view.VehiculoView;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -10,6 +11,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         ClienteView cliente = new ClienteView();
         EmpleadoView empleado = new EmpleadoView();
+        VehiculoView vehiculo = new VehiculoView();
         Taller taller = new Taller();
         int opcion;
 
@@ -36,7 +38,7 @@ public class App {
             
             case 1 -> cliente.crearCliente();
             case 2 -> cliente.gestionarCliente();
-            case 3 -> taller.crearVehiculo();
+            case 3 -> vehiculo.crearVehiculo();
             case 4 -> taller.crearServicio();
             case 5 -> empleado.crearEmpleado(); 
             case 6 -> empleado.gestionarEmpleado();
@@ -48,8 +50,7 @@ public class App {
             
         }while(opcion != 9);
 
-
-        Connection conexion = ConexionDB.conectar();
+        Connection conexion = conexionDB.conectar();
         if (conexion != null) {
         System.out.println("Conexión establecida correctamente.");
         } else {

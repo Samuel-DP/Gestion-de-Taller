@@ -1,10 +1,12 @@
 package view;
 
 import java.util.Scanner;
+import dao.VehiculosDao;
 import model.Vehiculo;
 
 public class VehiculoView {
     Scanner scanner = new Scanner(System.in);
+    private VehiculosDao vehiculosDao = new VehiculosDao();
     
       public Vehiculo crearVehiculo(){
         
@@ -29,8 +31,11 @@ public class VehiculoView {
         nBastidorVehiculo = scanner.nextLine();
 
         Vehiculo vehiculo = new Vehiculo(matriculaVehiculo, marcaVehiculo, modeloVehiculo, añoVehiculo, kmVehiculo, nBastidorVehiculo);
+        vehiculosDao.insertar(vehiculo);
         return vehiculo;
     }
+
+    
     
 }
  
