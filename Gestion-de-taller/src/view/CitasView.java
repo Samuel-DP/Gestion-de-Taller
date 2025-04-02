@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.util.Scanner;
 import model.Vehiculo;
@@ -20,7 +20,7 @@ public class CitasView {
 
         System.out.print("Ingrese la matrícula del vehículo: ");
         String matricula = scanner.nextLine();
-     
+    
         Vehiculo vehiculo = buscarVehiculo(matricula);
         if (vehiculo == null) {
             System.out.println("Vehículo no encontrado.");
@@ -34,4 +34,4 @@ public class CitasView {
         agregarCita(cita);
         System.out.println("Cita creada con éxito.");
     }
-}
+}*/

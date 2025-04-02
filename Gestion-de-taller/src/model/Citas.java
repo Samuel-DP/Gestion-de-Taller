@@ -18,7 +18,7 @@ public class Citas {
         this.descripcion = descripcion;
     }
 
-       
+    
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }

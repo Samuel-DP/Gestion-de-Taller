@@ -16,7 +16,7 @@ public class AsignarServicioView {
     VehiculoView vehiculoView = new VehiculoView();
     Vehiculo vehiculo = vehiculoView.crearVehiculo();
 
-     public void asignarServicio() {
+    public void asignarServicio() {
         System.out.println("=== Asignar Servicio ===");
         
         System.out.println("¿Desea crear un nuevo servicio (1) o seleccionar uno existente (2)?");
@@ -54,7 +54,7 @@ public class AsignarServicioView {
             String puestoEmpleado = scanner.nextLine();
             System.out.println("Ingrese el salario del empleado:");
             int salarioEmpleado = scanner.nextInt();
-            empleado = new Empleado(nombreEmpleado,apellidoEmpleado, dniEmpleado,puestoEmpleado, salarioEmpleado); // Ejemplo, deberías buscar el empleado real
+            empleado = new Empleado(nombreEmpleado,apellidoEmpleado, dniEmpleado,puestoEmpleado, salarioEmpleado); 
         }
         
         
@@ -79,14 +79,14 @@ public class AsignarServicioView {
             int km = scanner.nextInt();
             System.out.println("Ingrese el número de bastidor del vehículo:");
             String nBastidor = scanner.nextLine();
-            vehiculo = new Vehiculo(matricula, marca, modelo, año, km, nBastidor); // Ejemplo, deberías buscar el vehículo real
+            vehiculo = new Vehiculo(matricula, marca, modelo, año, km, nBastidor); 
         }
         
         
         servicio.asignarEmpleado(empleado);
         servicio.asignarVehiculo(vehiculo);
-        empleado.agregarServicio(servicio);
-        vehiculo.agregarServicio(servicio);
+        //empleado.agregarServicio(servicio);
+        //vehiculo.agregarServicio(servicio);
         
         System.out.println("Servicio asignado correctamente:");
         System.out.println("Servicio: " + servicio.getDescripcion());

@@ -37,7 +37,7 @@ public class InventarioDao {
         }
     }
 
-    public void obtenerPorNombre(String nombreProducto) {
+    public Inventario obtenerPorNombre(String nombreProducto) {
         String sql = "SELECT * FROM inventario WHERE nombre_producto = ?";
         try (Connection connection = ConexionDB.conectar();
         PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -51,6 +51,7 @@ public class InventarioDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public void actualizarNombre(String nombreProducto, String nuevoNombre) {
@@ -64,6 +65,38 @@ public class InventarioDao {
                 return;
             }
             System.out.println("Nombre del producto actualizado correctamente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actualizarCantidad(String nombreProducto, int nuevaCantidad) {
+        String sql = "UPDATE inventario SET cantidad = ? WHERE nombre_producto = ?";
+        try (Connection connection = ConexionDB.conectar(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, nuevaCantidad);
+            statement.setString(2, nombreProducto);
+            statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún producto con el nombre proporcionado.");
+                return;
+            }
+            System.out.println("Cantidad del producto actualizada correctamente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actualizarPrecioUnitario(String nombreProducto, double nuevoPrecio) {
+        String sql = "UPDATE inventario SET precio_unitario = ? WHERE nombre_producto = ?";
+        try (Connection connection = ConexionDB.conectar(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setDouble(1, nuevoPrecio);
+            statement.setString(2, nombreProducto);
+            statement.executeUpdate();
+            if (statement.getUpdateCount() == 0) {
+                System.out.println("No se encontró ningún producto con el nombre proporcionado.");
+                return;
+            }
+            System.out.println("Precio unitario del producto actualizado correctamente.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
