@@ -25,4 +25,5 @@ public class Vehiculo{
     public int getAño(){return this.año;}
     public int getKm(){return this.km;}
     public String getNbastidor(){return this.nBastidor;}
+    
 }

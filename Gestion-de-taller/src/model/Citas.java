@@ -6,16 +6,18 @@ public class Citas {
     private String fecha;
     private String hora;
     private String clienteDni;
-    private Vehiculo vehiculoMatricula;
+    private String vehiculoMatricula;
     private String descripcion;
+    private String estado; 
     private static List<Citas> listaCitas = new ArrayList<>();
 
-    public Citas(String fecha, String hora, String clienteDni, Vehiculo vehiculoMatricula, String descripcion) {
+    public Citas(String fecha, String hora, String clienteDni, String vehiculoMatricula, String descripcion, String estado) {
         this.fecha = fecha;
         this.hora = hora;
         this.clienteDni = clienteDni;
         this.vehiculoMatricula = vehiculoMatricula;
         this.descripcion = descripcion;
+        this.estado = "pendiente"; 
     }
 
     public String getDescripcion() {
@@ -42,15 +44,20 @@ public class Citas {
     public void setClienteDni(String clienteDni) {
         this.clienteDni = clienteDni;
     }
-    public Vehiculo getVehiculoMatricula() {
+    public String getVehiculoMatricula() {
         return vehiculoMatricula;
     }
-    public void setVehiculoMatricula(Vehiculo vehiculoMatricula) {
+    public void setVehiculoMatricula(String vehiculoMatricula) {
         this.vehiculoMatricula = vehiculoMatricula;
     }
     
-    public void agregarCita(Citas cita) {
-        listaCitas.add(cita);
+    public String getEstado() {
+        return estado;
     }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    
 
 }
