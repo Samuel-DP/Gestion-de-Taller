@@ -25,4 +25,16 @@ public class Vehiculo{
     public int getAño(){return this.año;}
     public int getKm(){return this.km;}
     public String getNbastidor(){return this.nBastidor;}
+
+    @Override
+    public String toString(){
+        return "Vehiculo{" +
+                "matricula='" + matricula + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", año=" + año +
+                ", km=" + km +
+                ", nBastidor='" + nBastidor + '\'' +
+                '}';
+    }
 }
