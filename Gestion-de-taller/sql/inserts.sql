@@ -20,4 +20,5 @@ INSERT INTO vehiculos (matricula, marca, modelo, año, km, nBastidor) VALUES
 ('TUV6789', 'Nissan', 'Sentra', 2022, 1000, '1N4AL3AP7CC123456');
 
 SELECT * FROM vehiculos;
-DROP TABLE vehiculos;
+DROP TABLE empleados;
+SHOW tables;
