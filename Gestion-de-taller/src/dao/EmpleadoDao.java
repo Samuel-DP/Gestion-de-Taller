@@ -12,7 +12,7 @@ import model.Empleado;
 public class EmpleadoDao {
     
     public void insertar(Empleado empleado){
-        String sql = "INSERT INTO empleados (nombre, apellidos, dni, puesto, salario) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO empleados (nombre, apellido, dni, puesto, salario) VALUES (?, ?, ?, ?, ?)";
         
         try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -68,7 +68,7 @@ public class EmpleadoDao {
     }
     
     public void actualizarApellido(String dni, String apellido) {
-        String sql = "UPDATE empleados SET apellidos = ? WHERE dni = ?";
+        String sql = "UPDATE empleados SET apellido = ? WHERE dni = ?";
         
         try (Connection conn = ConexionDB.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -154,12 +154,12 @@ public class EmpleadoDao {
             
             while (rs.next()) {
                 String nombre = rs.getString("nombre");
-                String apellidos = rs.getString("apellidos");
+                String apellido = rs.getString("apellido");
                 String dni = rs.getString("dni");
                 String puesto = rs.getString("puesto");
                 double salario = rs.getDouble("salario");
                 
-                Empleado empleado = new Empleado(nombre, apellidos, dni, puesto, salario);
+                Empleado empleado = new Empleado(nombre, apellido, dni, puesto, salario);
                 empleados.add(empleado);
             }
         } catch (SQLException e) {
@@ -181,11 +181,11 @@ public class EmpleadoDao {
             
             if (rs.next()) {
                 String nombre = rs.getString("nombre");
-                String apellidos = rs.getString("apellidos");
+                String apellido = rs.getString("apellido");
                 String puesto = rs.getString("puesto");
                 double salario = rs.getDouble("salario");
                 
-                empleado = new Empleado(nombre, apellidos, dni, puesto, salario);
+                empleado = new Empleado(nombre, apellido, dni, puesto, salario);
             }else {
                 System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
             }

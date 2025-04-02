@@ -17,4 +17,14 @@ public class Cliente {
     public String getApellido() { return this.apellido; }
     public String getDni() { return this.dni; }
     public int getTelefono() { return this.telefono; }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni='" + dni + '\'' +
+                ", telefono=" + telefono +
+                '}';
+    }
 }
