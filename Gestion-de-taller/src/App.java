@@ -27,7 +27,7 @@ public class App {
         System.out.println("7. Gestionar empleado");
         System.out.println("8. Asignar servicio");
         System.out.println("9. Gestion de inventario");
-        System.out.println("10.Inventario");
+        System.out.println("10");
         System.out.println("");
         System.out.println("11. Salir");
         System.out.println("Selecciona una opcion: ");
