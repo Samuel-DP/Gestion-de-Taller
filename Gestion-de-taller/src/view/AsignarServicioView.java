@@ -54,7 +54,7 @@ public class AsignarServicioView {
             String puestoEmpleado = scanner.nextLine();
             System.out.println("Ingrese el salario del empleado:");
             int salarioEmpleado = scanner.nextInt();
-            empleado = new Empleado(nombreEmpleado,apellidoEmpleado, dniEmpleado,puestoEmpleado, salarioEmpleado); // Ejemplo, deberías buscar el empleado real
+            empleado = new Empleado(nombreEmpleado,apellidoEmpleado, dniEmpleado,puestoEmpleado, salarioEmpleado); 
         }
         
         
@@ -79,14 +79,13 @@ public class AsignarServicioView {
             int km = scanner.nextInt();
             System.out.println("Ingrese el número de bastidor del vehículo:");
             String nBastidor = scanner.nextLine();
-            vehiculo = new Vehiculo(matricula, marca, modelo, año, km, nBastidor); // Ejemplo, deberías buscar el vehículo real
+            vehiculo = new Vehiculo(matricula, marca, modelo, año, km, nBastidor); 
         }
         
         
-        servicio.asignarEmpleado(empleado);
-        servicio.asignarVehiculo(vehiculo);
-        empleado.agregarServicio(servicio);
-        vehiculo.agregarServicio(servicio);
+        servicio.asignarEmpleado(this.empleado);
+        servicio.asignarVehiculo(this.vehiculo);
+       
         
         System.out.println("Servicio asignado correctamente:");
         System.out.println("Servicio: " + servicio.getDescripcion());
