@@ -20,4 +20,10 @@ public class ServicioView {
     return servicio;
     
     }
+
+    public void mostrarServicio(Servicio servicio) {
+        System.out.println("Descripción del servicio: " + servicio.getDescripcion());
+        System.out.println("Precio : " + servicio.getPrecio());
+        System.out.println("Horas estimadas: " + servicio.getHoras());
+    }
 }

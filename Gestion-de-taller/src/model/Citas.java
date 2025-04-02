@@ -18,9 +18,20 @@ public class Citas {
         this.descripcion = descripcion;
     }
 
-       
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public String getFecha() {
+        return fecha;
+    }
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+    public String getHora() {
+        return hora;
     }
     public void setHora(String hora) {
         this.hora = hora;
