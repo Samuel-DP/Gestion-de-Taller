@@ -16,7 +16,7 @@ public class AsignarServicioView {
     VehiculoView vehiculoView = new VehiculoView();
     Vehiculo vehiculo = vehiculoView.crearVehiculo();
 
-     public void asignarServicio() {
+    public void asignarServicio() {
         System.out.println("=== Asignar Servicio ===");
         
         System.out.println("¿Desea crear un nuevo servicio (1) o seleccionar uno existente (2)?");
@@ -83,6 +83,10 @@ public class AsignarServicioView {
         }
         
         
+        servicio.asignarEmpleado(empleado);
+        servicio.asignarVehiculo(vehiculo);
+        //empleado.agregarServicio(servicio);
+        //vehiculo.agregarServicio(servicio);
         servicio.asignarEmpleado(this.empleado);
         servicio.asignarVehiculo(this.vehiculo);
        

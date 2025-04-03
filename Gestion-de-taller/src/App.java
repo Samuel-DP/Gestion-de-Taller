@@ -4,17 +4,28 @@ import java.util.Scanner;
 import view.CitasView;
 import view.ClienteView;
 import view.EmpleadoView;
+import view.InventarioView;
 import view.VehiculoView;
+
+
 public class App {
     public static void main(String[] args) throws Exception {
+
+        Connection conexion = ConexionDB.conectar();
+        if (conexion != null) {
+        System.out.println("Conexión establecida correctamente.");
+        } else {
+        System.out.println("No se pudo establecer la conexión.");
+        }
 
         Scanner scanner = new Scanner(System.in);
         ClienteView cliente = new ClienteView();
         EmpleadoView empleado = new EmpleadoView();
         VehiculoView vehiculo = new VehiculoView();
+        InventarioView inventario = new InventarioView();
         CitasView cita = new CitasView();
+      
         int opcion;
-
         do{ 
 
         System.out.println("\nGestion de taller");
@@ -23,13 +34,13 @@ public class App {
         System.out.println("3. Registrar vehiculo");
         System.out.println("4. Gestionar vehiculo");
         System.out.println("5. Crear servicio");
-        System.out.println("6. Crear empleado");
+        System.out.println("6. Registrar empleado");
         System.out.println("7. Gestionar empleado");
         System.out.println("8. Asignar servicio");
         System.out.println("9. Gestion de inventario");
-        System.out.println("10.Inventario");
-        System.out.println("");
-        System.out.println("11. Salir");
+        System.out.println("10. Realizar pedidos");
+        System.out.println("11. Consultar datos");
+        System.out.println("13. Salir");
         System.out.println("Selecciona una opcion: ");
         
         opcion = scanner.nextInt();
@@ -45,25 +56,17 @@ public class App {
             case 6 -> empleado.crearEmpleado(); 
             case 7 -> empleado.gestionarEmpleado();
             //case 6 -> taller.asignarServicio();   
+           // case 7 -> taller.gestionInventario();   
+            case 9 -> inventario.gestionInventario();      
+            case 13 -> System.out.println("Saliendo del programa");   
            // case 7 -> taller.gestionInventario(); 
             case 8 -> cita.crearCita(); 
-            case 9 -> cita.gestionarCita();               
-                     
+            case 9 -> cita.gestionarCita();                 
             case 10 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
             
-        }while(opcion != 11);
-
-        Connection conexion = ConexionDB.conectar();
-        if (conexion != null) {
-        System.out.println("Conexión establecida correctamente.");
-        } else {
-        System.out.println("No se pudo establecer la conexión.");
-        }
-    
-        
-        
+        }while(opcion != 13);
     }
 }
 

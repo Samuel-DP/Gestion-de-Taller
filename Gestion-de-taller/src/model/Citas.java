@@ -19,7 +19,7 @@ public class Citas {
         this.descripcion = descripcion;
         this.estado = "pendiente"; 
     }
-
+  
     public String getDescripcion() {
         return descripcion;
     }

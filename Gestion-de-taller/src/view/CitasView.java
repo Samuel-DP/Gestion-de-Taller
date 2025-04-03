@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,10 @@ public class CitasView {
         String clienteDni = scanner.nextLine();
         
         System.out.print("Ingrese la matrícula del vehículo: ");
+        String matricula = scanner.nextLine();
+    
+        Vehiculo vehiculo = buscarVehiculo(matricula);
+        if (vehiculo == null) {
         String vehiculoMatricula = scanner.nextLine();
                 
         if (vehiculo.getMatricula() == null) {
@@ -47,6 +51,8 @@ public class CitasView {
         listaCitas.add(cita);
         System.out.println("Cita creada con éxito.");
     }
+
+}*/
 
     private void buscarCitaPorDni(String dniCliente) {
         boolean buscar = false;

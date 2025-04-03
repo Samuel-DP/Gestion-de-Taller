@@ -10,6 +10,7 @@ public class ConexionDB {
     private static final String USUARIO = "samu"; // Nombre de usuario de MySQL
     private static final String CONTRASENA = "changeme"; //Contraseña del usuario de MySQL
     // Método para establecer la conexión con la base de datos
+
     public static Connection conectar() {
         try {
         // Establecer la conexión con la base de datos
