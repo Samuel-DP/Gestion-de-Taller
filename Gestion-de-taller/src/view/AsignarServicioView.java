@@ -87,6 +87,9 @@ public class AsignarServicioView {
         servicio.asignarVehiculo(vehiculo);
         //empleado.agregarServicio(servicio);
         //vehiculo.agregarServicio(servicio);
+        servicio.asignarEmpleado(this.empleado);
+        servicio.asignarVehiculo(this.vehiculo);
+       
         
         System.out.println("Servicio asignado correctamente:");
         System.out.println("Servicio: " + servicio.getDescripcion());

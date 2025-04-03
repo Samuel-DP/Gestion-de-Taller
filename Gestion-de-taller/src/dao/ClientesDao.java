@@ -118,6 +118,7 @@ public class ClientesDao{
     }
 
     public ArrayList<Cliente> obtenerTodos(){ 
+       
         ArrayList<Cliente> clientes = new ArrayList<>();
         String sql = "SELECT * FROM clientes";
         

@@ -1,6 +1,7 @@
 import dao.ConexionDB;
 import java.sql.Connection;
 import java.util.Scanner;
+import view.CitasView;
 import view.ClienteView;
 import view.EmpleadoView;
 import view.InventarioView;
@@ -22,7 +23,8 @@ public class App {
         EmpleadoView empleado = new EmpleadoView();
         VehiculoView vehiculo = new VehiculoView();
         InventarioView inventario = new InventarioView();
-        
+        CitasView cita = new CitasView();
+      
         int opcion;
         do{ 
 
@@ -57,6 +59,10 @@ public class App {
            // case 7 -> taller.gestionInventario();   
             case 9 -> inventario.gestionInventario();      
             case 13 -> System.out.println("Saliendo del programa");   
+           // case 7 -> taller.gestionInventario(); 
+            case 8 -> cita.crearCita(); 
+            case 9 -> cita.gestionarCita();                 
+            case 10 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
             

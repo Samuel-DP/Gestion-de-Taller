@@ -26,6 +26,7 @@ public class Vehiculo{
     public int getKm(){return this.km;}
     public String getNbastidor(){return this.nBastidor;}
 
+
     @Override
     public String toString(){
         return "Vehiculo{" +
@@ -37,4 +38,5 @@ public class Vehiculo{
                 ", nBastidor='" + nBastidor + '\'' +
                 '}';
     }
+
 }
