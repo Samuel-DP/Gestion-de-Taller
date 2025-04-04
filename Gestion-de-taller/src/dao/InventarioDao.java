@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.Inventario;
 
 public class InventarioDao {
@@ -102,4 +103,22 @@ public class InventarioDao {
         }
     }
 
+    public ArrayList<Inventario> obtenerTodos() {
+        ArrayList<Inventario> inventarios = new ArrayList<>();
+        String sql = "SELECT * FROM inventario";
+        try (Connection connection = ConexionDB.conectar(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Inventario inventario = new Inventario(
+                    resultSet.getString("nombre_producto"),
+                    resultSet.getInt("cantidad"),
+                    resultSet.getDouble("precio_unitario")
+                );
+                inventarios.add(inventario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return inventarios;
+    }
 }

@@ -88,8 +88,9 @@ public class InventarioView {
             }
             case 4 -> {
                 System.out.println("Lista de productos: ");
-                for (Inventario inventario : inventarios) {
-                    System.out.println(inventario.toString());
+                ArrayList<Inventario> listaProductos = inventarioDao.obtenerTodos();
+                for (Inventario producto : listaProductos) {
+                    System.out.println(producto.toString());
                 }
             }
             case 5 -> {
