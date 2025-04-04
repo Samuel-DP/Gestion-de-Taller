@@ -41,7 +41,7 @@ public class InventarioView {
                 inventarioDao.eliminar(nombre);
             }
 
-            case 3 -> { //HAcer bien NO FUNCIAAA
+            case 3 -> { 
                 int opcionActualizar = 0;
 
                 do {
