@@ -1,14 +1,16 @@
 /*package view;
 
+import dao.CitasDao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import model.Citas;
 import model.Vehiculo;
+
 public class CitasView {
     private static List<Citas> listaCitas = new ArrayList<>();
     private Vehiculo vehiculo;
-
+    private CitasDao citasDao = new CitasDao();
     public void crearCita() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese la fecha (00-00-0000): ");
@@ -49,6 +51,7 @@ public class CitasView {
 
         Citas cita = new Citas(fecha, hora, clienteDni, vehiculoMatricula, descripcion, estado);
         listaCitas.add(cita);
+        citasDao.insertar(cita);
         System.out.println("Cita creada con éxito.");
     }
 
@@ -101,6 +104,7 @@ public class CitasView {
             System.out.println("Matrícula del Vehículo: " + cita.getVehiculoMatricula());
             System.out.println("Descripción: " + cita.getDescripcion());
             System.out.println("------------------------");
+            citasDao.obtenerTodas();
         }
     }
 
@@ -123,17 +127,20 @@ public class CitasView {
                 System.out.print("Ingrese el DNI del cliente: ");
                 String dniCliente = scanner.nextLine();
                 buscarCitaPorDni(dniCliente);
+                citasDao.obtenerPorDni(dniCliente);
                 }
             case 3 -> {
                 System.out.print("Ingrese la matrícula del vehículo: ");
                 String matriculaVehiculo = scanner.nextLine();
                 buscarCitaPorMatricula(matriculaVehiculo);
+                citasDao.obtenerPorMatricula(matriculaVehiculo);
             }
             case 4 -> {
                 System.out.print("Ingrese el DNI del cliente: ");
-                String dniClienteEstado = scanner.nextLine();
+                String dniCliente = scanner.nextLine();
                 System.out.print("Ingrese el nuevo estado de la cita: ");
                 String nuevoEstado = scanner.nextLine();
+                citasDao.actualizarEstado(dniCliente, nuevoEstado);
             }
             case 5 ->{
                 System.out.print("Ingrese el DNI del cliente: ");
@@ -143,6 +150,7 @@ public class CitasView {
                     if (cita.getClienteDni().equals(dniClienteEliminar)) {
                         listaCitas.remove(cita);
                         System.out.println("Cita eliminada con éxito.");
+                        citasDao.eliminar(dniClienteEliminar);
                         encontrado = true;
                         break;
                     }

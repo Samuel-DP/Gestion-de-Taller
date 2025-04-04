@@ -27,6 +27,7 @@ public class CitasDao {
             e.printStackTrace();
         }
     }
+    
     public void actualizarEstado(String dniCliente, String nuevoEstado) {
         String sql = "UPDATE citas SET estado = ? WHERE clienteDni = ?";
         
