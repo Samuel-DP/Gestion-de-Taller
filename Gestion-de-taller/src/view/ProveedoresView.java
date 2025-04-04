@@ -92,9 +92,13 @@ public class ProveedoresView {
                 for (Proveedores proveedor : listaProveedores) {
                     System.out.println(proveedor.toString());
                 }
-
             }
+            case 5 -> {
+                System.out.println("Saliendo de la gestión de proveedores...");
+            }
+            default ->{
+                System.out.println("Opción no válida, intente nuevamente.");
+            } 
         }
-
     }
 }

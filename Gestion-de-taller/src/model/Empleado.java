@@ -1,17 +1,12 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Empleado {
 
-    
     private String nombre; 
     private String apellido;
     private String dni;
     private String puesto;
     private double salario;
-    private List<Servicio> servicios = new ArrayList<>();
 
     public Empleado(String nombre, String apellido, String dni, String puesto, double salario) {
         this.nombre = nombre;
@@ -26,6 +21,12 @@ public class Empleado {
     public String getDni() {return this.dni;}
     public String getPuesto() {return this.puesto;}
     public double getSalario() {return this.salario;}
+
+    public void setNombre(String nombre) {this.nombre = nombre;}
+    public void setApellido(String apellido) {this.apellido = apellido;}
+    public void setDni(String dni) {this.dni = dni;}
+    public void setPuesto(String puesto) {this.puesto = puesto;}
+    public void setSalario(double salario) {this.salario = salario;}
 
     @Override
     public String toString(){

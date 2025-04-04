@@ -26,6 +26,12 @@ public class Vehiculo{
     public int getKm(){return this.km;}
     public String getNbastidor(){return this.nBastidor;}
 
+    public void setMatricula(String matricula){this.matricula = matricula;}
+    public void setMarca(String marca){this.marca = marca;}
+    public void setModelo(String modelo){this.modelo = modelo;}
+    public void setAño(int año){this.año = año;}
+    public void setKm(int km){this.km = km;}
+    public void setnBastidor(String nBastidor){this.nBastidor = nBastidor;}
 
     @Override
     public String toString(){
