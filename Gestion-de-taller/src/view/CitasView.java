@@ -1,4 +1,4 @@
-/*package view;
+package view;
 
 import dao.CitasDao;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import model.Citas;
 import model.Vehiculo;
+
 
 public class CitasView {
     private static List<Citas> listaCitas = new ArrayList<>();
@@ -25,10 +26,7 @@ public class CitasView {
         System.out.print("Ingrese la matrícula del vehículo: ");
         String matricula = scanner.nextLine();
     
-        Vehiculo vehiculo = buscarVehiculo(matricula);
-        if (vehiculo == null) {
-        String vehiculoMatricula = scanner.nextLine();
-                
+        
         if (vehiculo.getMatricula() == null) {
             System.out.println("Vehículo no encontrado.");
             return;
@@ -49,13 +47,13 @@ public class CitasView {
             System.out.println("Estado no válido. La cita se guardará como pendiente.");
         }
 
-        Citas cita = new Citas(fecha, hora, clienteDni, vehiculoMatricula, descripcion, estado);
+        Citas cita = new Citas(fecha, hora, clienteDni, matricula, descripcion, estado);
         listaCitas.add(cita);
         citasDao.insertar(cita);
         System.out.println("Cita creada con éxito.");
-    }
+    
 
-}*/
+}
 
     private void buscarCitaPorDni(String dniCliente) {
         boolean buscar = false;

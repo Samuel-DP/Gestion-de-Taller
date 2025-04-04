@@ -61,7 +61,7 @@ public class App {
             case 13 -> System.out.println("Saliendo del programa");   
            // case 7 -> taller.gestionInventario(); 
             case 8 -> cita.crearCita(); 
-            case 9 -> cita.gestionarCita();                 
+            case 11 -> cita.gestionarCita();                 
             case 10 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
