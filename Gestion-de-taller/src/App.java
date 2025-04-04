@@ -62,6 +62,9 @@ public class App {
            // case 8 -> cita.crearCita(); 
             //case 10 -> cita.gestionarCita();                 
             case 13 -> System.out.println("Saliendo del programa");   
+            case 8 -> cita.crearCita(); 
+            case 11 -> cita.gestionarCita();                 
+            case 10 -> System.out.println("Saliendo del programa");   
             default -> System.out.println("Opción no válida, intente nuevamente.");        
         }   
             
