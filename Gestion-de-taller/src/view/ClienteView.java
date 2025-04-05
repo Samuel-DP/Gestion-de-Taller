@@ -16,6 +16,9 @@ public class ClienteView {
         String dniCliente;
         int telefonoCliente;
 
+        System.out.println("                          ");
+        System.out.println("==========================");
+        System.out.println("                          ");
         System.out.println("Ingresa un nombre: ");
         nombreCliente = scanner.nextLine();
         System.out.println("Ingresa un apellido: ");
@@ -37,6 +40,9 @@ public class ClienteView {
         String dni = "";
         int opcion;
         do { 
+            System.out.println("                          ");
+            System.out.println("==========================");
+            System.out.println("                          ");
             System.out.println("1. Eliminar cliente");
             System.out.println("2. Actualizar datos cliente");
             System.out.println("3. Mostrar todos los clientes");
@@ -60,6 +66,9 @@ public class ClienteView {
                     }
                     int respuesta;
                     do { 
+                        System.out.println("                          ");
+                        System.out.println("==========================");
+                        System.out.println("                          ");
                         System.out.println("1. Actualizar nombre");
                         System.out.println("2. Actualizar apellido");
                         System.out.println("3. Actualizar DNI");
