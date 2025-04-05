@@ -24,6 +24,7 @@ public class ClienteView {
         dniCliente = scanner.nextLine();
         System.out.println("Ingrese el teléfono: ");
         telefonoCliente = scanner.nextInt();
+        scanner.nextLine(); 
 
         Cliente cliente = new Cliente(nombreCliente, apellidoCliente, dniCliente, telefonoCliente);
         clientes.add(cliente);

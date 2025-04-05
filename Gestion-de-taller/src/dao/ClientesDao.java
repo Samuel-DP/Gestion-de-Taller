@@ -18,7 +18,7 @@ public class ClientesDao{
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
             stmt.setString(3, cliente.getDni());
-            stmt.setInt(3, cliente.getTelefono());
+            stmt.setInt(4, cliente.getTelefono());
 
             stmt.executeUpdate();
             System.out.println("Cliente insertado correctamente.");
