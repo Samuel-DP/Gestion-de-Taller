@@ -19,6 +19,20 @@ INSERT INTO vehiculos (matricula, marca, modelo, año, km, nBastidor) VALUES
 ('QRS2345', 'Chevrolet', 'Cruze', 2018, 30000, '1G1BE5SM7J7112345'),
 ('TUV6789', 'Nissan', 'Sentra', 2022, 1000, '1N4AL3AP7CC123456');
 
+INSERT INTO proveedores(nombre, telefono, direccion, email) VALUES
+('Proveedor1', '123456789', 'Calle Falsa 123', 'proveedor1@example.com'),
+('Proveedor2', '987654321', 'Avenida Siempre Viva 742', 'proveedor2@example.com'),
+('Proveedor3', '456789123', 'Plaza Mayor 10', 'proveedor3@example.com'),
+('Proveedor4', '321654987', 'Calle Luna 45', 'proveedor4@example.com'),
+('Proveedor5', '789123456', 'Calle Sol 67', 'proveedor5@example.com');
+
+INSERT INTO inventario (nombre_producto, cantidad, precio_unitario, id_proveedor) VALUES
+('Aceite', 100, 15.50, 1),
+('Filtro de aire', 50, 10.00, 2),
+('Bujías', 200, 5.00, 3),
+('Frenos', 75, 30.00, 4),
+('Batería', 30, 80.00, 5);
+
 SELECT * FROM vehiculos;
-DROP TABLE empleados;
+DROP TABLE inventario;
 SHOW tables;
