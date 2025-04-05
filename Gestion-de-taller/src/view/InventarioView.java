@@ -14,6 +14,9 @@ public class InventarioView {
         int opcion = 0;
         
         do { 
+            System.out.println("                          ");
+            System.out.println("==========================");
+            System.out.println("                          ");
             System.out.println("Que desea realizar");
             System.out.println("1. Agregar producto");
             System.out.println("2. Eliminar producto"); 
@@ -25,6 +28,9 @@ public class InventarioView {
 
         switch(opcion) {
             case 1 -> {
+                System.out.println("                          ");
+                System.out.println("==========================");
+                System.out.println("                          ");
                 System.out.println("Ingrese el nombre del producto: ");
                 String nombreProducto = scanner.nextLine();
                 System.out.println("Ingrese la cantidad del producto: ");
@@ -55,6 +61,9 @@ public class InventarioView {
                         System.out.println("Producto no encontrado.");
                         break;
                     }
+                    System.out.println("                          ");
+                    System.out.println("==========================");
+                    System.out.println("                          ");
                     System.out.println("Que desea actualizar");
                     System.out.println("1. Nombre del producto");
                     System.out.println("2. Cantidad del producto");

@@ -35,9 +35,9 @@ public class App {
             System.out.println("2. Gestionar cliente");
             System.out.println("3. Registrar vehiculo");
             System.out.println("4. Gestionar vehiculo");
-            System.out.println("5. Crear servicio");
-            System.out.println("6. Registrar empleado");
-            System.out.println("7. Gestionar empleado");
+            System.out.println("5. Registrar empleado");
+            System.out.println("6. Gestionar empleado");
+            System.out.println("7. Crear servicio");
             System.out.println("8. Asignar servicio");
             System.out.println("9. Gestion de inventario");
             System.out.println("10. Gestionar proveedores");
@@ -55,12 +55,11 @@ public class App {
                 case 2 -> cliente.gestionarCliente();
                 case 3 -> vehiculo.crearVehiculo();
                 case 4 -> vehiculo.gestionarVehiculo();
-                //case 5 -> taller.crearServicio();
-                case 6 -> empleado.crearEmpleado(); 
-                case 7 -> empleado.gestionarEmpleado();
+                case 5 -> empleado.crearEmpleado();
+                case 6 -> empleado.gestionarEmpleado();
                 //case 6 -> taller.asignarServicio();     
                 case 9 -> inventario.gestionInventario();         
-            // case 8 -> cita.crearCita(); 
+                // case 8 -> cita.crearCita(); 
                 //case 10 -> cita.gestionarCita();   
                 case 10 ->proveedores.gestionProveedores();          
                 case 8 -> cita.crearCita(); 

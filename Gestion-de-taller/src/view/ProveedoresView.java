@@ -13,6 +13,9 @@ public class ProveedoresView {
     public void gestionProveedores(){
         int opcion = 0;
         do {
+            System.out.println("                          ");
+            System.out.println("==========================");
+            System.out.println("                          ");
             System.out.println("Que desea realizar");
             System.out.println("1. Agregar proveedor");
             System.out.println("2. Eliminar proveedor"); 
@@ -24,6 +27,9 @@ public class ProveedoresView {
         
             switch(opcion){
                 case 1-> {
+                    System.out.println("                          ");
+                    System.out.println("==========================");
+                    System.out.println("                          ");
                     System.out.println("Ingrese el nombre del proveedor: ");
                     String nombreProveedor = scanner.nextLine();
                     System.out.println("Ingrese el telefono del proveedor: ");
@@ -52,7 +58,10 @@ public class ProveedoresView {
                             System.out.println("Proveedor no encontrado.");
                             break;
                         }
-                        System.out.println("Que desea actualizar?");
+                        System.out.println("                          ");
+                        System.out.println("==========================");
+                        System.out.println("                          ");
+                        System.out.println("Que desea actualizar");
                         System.out.println("1. Nombre del proveedor");
                         System.out.println("2. Telefono del proveedor");
                         System.out.println("3. Direccion del proveedor");
@@ -66,21 +75,25 @@ public class ProveedoresView {
                                 System.out.println("Ingrese el nuevo nombre del proveedor: ");
                                 String nuevoNombre = scanner.nextLine();
                                 proveedoresDao.actualizarNombre(nombre, nuevoNombre);
+                                return;
                             }
                             case 2 -> {
                                 System.out.println("Ingrese el nuevo telefono del proveedor: ");
                                 String nuevoTelefono = scanner.nextLine();
                                 proveedoresDao.actualizarTelefono(nombre, nuevoTelefono);
+                                return;
                             }
                             case 3 -> {
                                 System.out.println("Ingrese la nueva direccion del proveedor: ");
                                 String nuevaDireccion = scanner.nextLine();
                                 proveedoresDao.actualizarDireccion(nombre, nuevaDireccion);
+                                return;
                             }
                             case 4 -> {
                                 System.out.println("Ingrese el nuevo email del proveedor: ");
                                 String nuevoEmail = scanner.nextLine();
                                 proveedoresDao.actualizarEmail(nombre, nuevoEmail);
+                                return;
                             }
                             case 5 -> {
                                 System.out.println("Saliendo de la actualización");
