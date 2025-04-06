@@ -25,8 +25,6 @@ CREATE TABLE vehiculos(
     nBastidor VARCHAR(30) NOT NULL
 );
 
---TABLAS CREADAS HASTA AQUI
-
 CREATE TABLE servicios(
     id_servicio INT AUTO_INCREMENT PRIMARY KEY,
     descripcion VARCHAR(150) NOT NULL,
@@ -34,53 +32,13 @@ CREATE TABLE servicios(
     horas INT NOT NULL
 );
 
-CREATE TABLE inventario(
-    id_producto INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_producto VARCHAR(20) NOT NULL,
-    cantidad INT NOT NULL,
-    precio DEC(10.2)NOT NULL CHECK(PRECIO > 0),
-    id_proveedor INT NOT NULL,
-    FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor)
-);
-
-CREATE TABLE proveedores(
-    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(20) NOT NULL,
-    direccion VARCHAR(50),
-    telefono INT,
-    email VARCHAR(100),
-    cif VARCHAR(20)
-);
-
-CREATE TABLE asignaciones(
-    id_asignaciones INT AUTO_INCREMENT PRIMARY KEY,
-    id_servicio INT NOT NULL,
-    id_empleado INT NOT NULL,
-    id_vehiculo INT NOT NULL,
-    estado VARCHAR(20) NOT NULL,
-    fecha_inicio DATE NOT NULL,
-    fecha_fin DATE NOT NULL,
-    FOREIGN KEY(id_servicio) REFERENCES servicios(id_servicio),
-    FOREIGN KEY(id_empleado) REFERENCES empleados(id_empleado),
-    FOREIGN KEY(id_vehiculo) REFERENCES vehiculos(id_vehiculo)
-);
-
-CREATE TABLE pedidos(
-    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
-    id_proveedor INT NOT NULL,
-    fecha_pedido DATE NOT NULL,
-    estado VARCHAR(20) NOT NULL,
-    precio DEC(10.2) NOT NULL CHECK(precio > 0),
-    FOREIGN KEY(id_proveedor) REFERENCES proveedores(id_proveedor)
-);
-
-CREATE TABLE citas(
-    id_cita INT AUTO_INCREMENT PRIMARY KEY,
-    id_cliente INT NOT NULL,
-    id_vehiculo INT NOT NULL,
-    fecha_cita DATE NOT NULL,
-    descripcion_cita VARCHAR(50) NOT NULL,
-    estado_cita VARCHAR(20) NOT NULL,
-    FOREIGN KEY(id_cliente) REFERENCES clientes(id_cliente)
+CREATE TABLE citas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    fecha VARCHAR(20),
+    hora VARCHAR(10),
+    clienteDni VARCHAR(20),
+    vehiculoMatricula VARCHAR(20),
+    descripcion VARCHAR(255),
+    estado VARCHAR(20) DEFAULT 'pendiente'
 );
 
