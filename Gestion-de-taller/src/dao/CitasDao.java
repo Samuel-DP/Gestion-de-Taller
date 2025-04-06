@@ -12,7 +12,7 @@ public class CitasDao {
         String sql = "INSERT INTO citas (fecha, hora, clienteDni, vehiculoMatricula, descripcion, estado) VALUES (?, ?, ?, ?, ?, ?)";
         
         try (Connection conn = ConexionDB.conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, cita.getFecha());
             stmt.setString(2, cita.getHora());

@@ -7,6 +7,7 @@ import view.ConsultasView;
 import view.EmpleadoView;
 import view.InventarioView;
 import view.ProveedoresView;
+import view.ServicioView;
 import view.VehiculoView;
 
 
@@ -28,6 +29,7 @@ public class App {
         ProveedoresView proveedores = new ProveedoresView();
         CitasView cita = new CitasView();
         ConsultasView consultas = new ConsultasView();
+        ServicioView servicio = new ServicioView();
 
 
         int opcion;
@@ -41,12 +43,13 @@ public class App {
             System.out.println("5. Registrar empleado");
             System.out.println("6. Gestionar empleado");
             System.out.println("7. Crear servicio");
-            System.out.println("8. Asignar servicio");
+            System.out.println("8. Actualizar servicio");
             System.out.println("9. Gestion de inventario");
             System.out.println("10. Gestionar proveedores");
-            System.out.println("11. Realizar pedidos");
-            System.out.println("12. Consultar datos");
-            System.out.println("13. Salir");
+            System.out.println("11. Crear cita");
+            System.out.println("12. Gestionar cita");
+            System.out.println("13. Consultar datos");
+            System.out.println("14. Salir");
             System.out.println("Selecciona una opcion: ");
             
             opcion = scanner.nextInt();
@@ -58,19 +61,19 @@ public class App {
                 case 3 -> vehiculo.crearVehiculo();
                 case 4 -> vehiculo.gestionarVehiculo();
                 case 5 -> empleado.crearEmpleado();
-                case 6 -> empleado.gestionarEmpleado();
-                //case 6 -> taller.asignarServicio();     
+                case 6 -> empleado.gestionarEmpleado();  
+                case 7-> servicio.crearServicio();
+                case 8 -> servicio.actualizarServicio();
                 case 9 -> inventario.gestionInventario();         
-                // case 8 -> cita.crearCita(); 
-                //case 10 -> cita.gestionarCita();   
                 case 10 ->proveedores.gestionProveedores();          
-                case 8 -> cita.crearCita(); 
-                case 11 -> cita.gestionarCita();  
-                case 12 -> consultas.Consultas();              
-                case 13 -> System.out.println("Saliendo del programa");   
+                case 11 -> cita.crearCita(); 
+                case 12 -> cita.gestionarCita();  
+                case 13 -> consultas.Consultas();              
+                case 14 -> System.out.println("Saliendo del programa");   
                 default -> System.out.println("Opción no válida, intente nuevamente.");        
             }   
-        }while(opcion != 13);
+        }while(opcion != 14);
+        scanner.close();
     }
 }
 
