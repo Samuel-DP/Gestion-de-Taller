@@ -15,14 +15,16 @@ CREATE TABLE empleados(
     salario DEC(10.2)NOT NULL CHECK (salario > 0) 
 );
 
-CREATE TABLE vehiculos(
+CREATE TABLE vehiculos (
     id_vehiculo INT AUTO_INCREMENT PRIMARY KEY,
     matricula VARCHAR(15) NOT NULL,
     marca VARCHAR(10) NOT NULL,
-    modelo VARCHAR(10)NOT NULL,
+    modelo VARCHAR(10) NOT NULL,
     año INT NOT NULL,
     km INT NOT NULL,
-    nBastidor VARCHAR(30) NOT NULL
+    nBastidor VARCHAR(30) NOT NULL,
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
 );
 
 CREATE TABLE proveedores(

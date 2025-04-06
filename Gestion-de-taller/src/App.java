@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.util.Scanner;
 import view.CitasView;
 import view.ClienteView;
+import view.ConsultasView;
 import view.EmpleadoView;
 import view.InventarioView;
 import view.ProveedoresView;
@@ -26,6 +27,7 @@ public class App {
         InventarioView inventario = new InventarioView();
         ProveedoresView proveedores = new ProveedoresView();
         CitasView cita = new CitasView();
+        ConsultasView consultas = new ConsultasView();
 
         int opcion;
         do{ 
@@ -63,7 +65,8 @@ public class App {
                 //case 10 -> cita.gestionarCita();   
                 case 10 ->proveedores.gestionProveedores();          
                 case 8 -> cita.crearCita(); 
-                case 11 -> cita.gestionarCita();                 
+                case 11 -> cita.gestionarCita();  
+                case 12 -> consultas.Consultas();              
                 case 13 -> System.out.println("Saliendo del programa");   
                 default -> System.out.println("Opción no válida, intente nuevamente.");        
             }   
