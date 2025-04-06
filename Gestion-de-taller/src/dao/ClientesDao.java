@@ -18,7 +18,7 @@ public class ClientesDao{
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
             stmt.setString(3, cliente.getDni());
-            stmt.setInt(3, cliente.getTelefono());
+            stmt.setInt(4, cliente.getTelefono());
 
             stmt.executeUpdate();
             System.out.println("Cliente insertado correctamente.");
@@ -118,7 +118,7 @@ public class ClientesDao{
     }
 
     public ArrayList<Cliente> obtenerTodos(){ 
-       
+    
         ArrayList<Cliente> clientes = new ArrayList<>();
         String sql = "SELECT * FROM clientes";
         

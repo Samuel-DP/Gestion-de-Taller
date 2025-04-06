@@ -17,6 +17,9 @@ public class VehiculoView {
         int kmVehiculo;
         String nBastidorVehiculo;
 
+        System.out.println("                          ");
+        System.out.println("==========================");
+        System.out.println("                          ");
         System.out.println("Ingrese una matricula: ");
         matriculaVehiculo = scanner.nextLine();
         System.out.println("Ingrese una marca: ");
@@ -40,7 +43,10 @@ public class VehiculoView {
     public void gestionarVehiculo(){
       int respuesta = 0;
       do { 
-
+        
+        System.out.println("                          ");
+        System.out.println("==========================");
+        System.out.println("                          ");
         System.out.println("1. Eliminar vehiculo");
         System.out.println("2. Actualizar datos vehiculo");
         System.out.println("3. Mostrar todos los vehiculos ");
@@ -65,6 +71,9 @@ public class VehiculoView {
             }
             int opcion = 0;
             do { 
+              System.out.println("                          ");
+              System.out.println("==========================");
+              System.out.println("                          ");
               System.out.println("Que desea actualizar");
               System.out.println("1. Matricula");
               System.out.println("2. Marca ");
@@ -111,7 +120,7 @@ public class VehiculoView {
                   System.out.println("Saliendo del menu de actualizacion de vehiculo");
                 }
               }
-            } while (respuesta != 7);
+            } while (opcion != 7);
           }
 
           case 3 -> {

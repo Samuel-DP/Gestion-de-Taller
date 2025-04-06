@@ -4,16 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.Inventario;
 
 public class InventarioDao {
 
     public void insertar(Inventario inventario){
-        String sql = "INSERT INTO inventario (nombre_producto, cantidad, precio_unitario) VALUES (?, ?, ?)";
-        try (Connection connection = ConexionDB.conectar(); PreparedStatement statement = connection.prepareStatement(sql)) {
+        String sql = "INSERT INTO inventario (nombre_producto, cantidad, precio_unitario, id_proveedor) VALUES (?, ?, ?, ?)";
+        try (Connection connection = ConexionDB.conectar(); 
+        PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, inventario.getNombreProducto());
             statement.setInt(2, inventario.getCantidad());
             statement.setDouble(3, inventario.getPrecioUnitario());
+            statement.setInt(4, inventario.getIdProveedor());
             statement.executeUpdate();
             System.out.println("Producto insertado correctamente.");
 
@@ -37,21 +40,22 @@ public class InventarioDao {
         }
     }
 
-    public Inventario obtenerPorNombre(String nombreProducto) {
+    public boolean  obtenerPorNombre(String nombreProducto) {
         String sql = "SELECT * FROM inventario WHERE nombre_producto = ?";
         try (Connection connection = ConexionDB.conectar();
         PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, nombreProducto);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                System.out.println("Producto encontrado: " + resultSet.getString("nombre_producto"));
+                System.out.println("Producto encontrado: ");
+                return true;
             } else {
-                System.out.println("No se encontró ningún producto con el nombre proporcionado.");
+                return false;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     public void actualizarNombre(String nombreProducto, String nuevoNombre) {
@@ -102,4 +106,23 @@ public class InventarioDao {
         }
     }
 
+    public ArrayList<Inventario> obtenerTodos() {
+        ArrayList<Inventario> inventarios = new ArrayList<>();
+        String sql = "SELECT * FROM inventario";
+        try (Connection connection = ConexionDB.conectar(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Inventario inventario = new Inventario(
+                    resultSet.getString("nombre_producto"),
+                    resultSet.getInt("cantidad"),
+                    resultSet.getDouble("precio_unitario"),
+                    resultSet.getInt("id_proveedor") 
+                );
+                inventarios.add(inventario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return inventarios;
+    }
 }
