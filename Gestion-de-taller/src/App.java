@@ -29,6 +29,7 @@ public class App {
         CitasView cita = new CitasView();
         ConsultasView consultas = new ConsultasView();
 
+
         int opcion;
         do{ 
 
@@ -49,7 +50,6 @@ public class App {
             System.out.println("Selecciona una opcion: ");
             
             opcion = scanner.nextInt();
-
             
             switch (opcion) {
                 
