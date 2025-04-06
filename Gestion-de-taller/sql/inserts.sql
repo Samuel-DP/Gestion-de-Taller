@@ -33,6 +33,13 @@ INSERT INTO inventario (nombre_producto, cantidad, precio_unitario, id_proveedor
 ('Frenos', 75, 30.00, 4),
 ('Batería', 30, 80.00, 5);
 
+INSERT INTO Citas (fecha, hora, clienteDni, vehiculoMatricula, descripcion, estado) VALUES
+('2024-10-27', '10:00', '12345678A', '1234ABC', 'Cambio de aceite', 'confirmada'),
+('2024-10-28', '14:30', '98765432B', '5678DEF', 'Revisión general', 'pendiente'),
+('2024-10-29', '11:00', '54321678C', '9012GHI', 'Cambio de frenos', 'cancelada'),
+('2024-10-30', '16:00', '87654321D', '3456JKL', 'Reparación de neumáticos', 'pendiente'),
+('2024-10-31', '09:00', '65432198E', '7890MNO', 'Alineación y balanceo', 'confirmada');
+
 SELECT * FROM vehiculos;
 DROP TABLE inventario;
 DROP TABLE IF EXISTS vehiculos;
