@@ -18,6 +18,9 @@ private EmpleadoDao empleadoDao = new EmpleadoDao();
         String puestoEmpleado;
         double salarioEmpleado;
 
+        System.out.println("                          ");
+        System.out.println("==========================");
+        System.out.println("                          ");
         System.out.println("Ingresa un nombre: ");
         nombreEmpleado = scanner.nextLine();
         System.out.println("Ingresa un apellido: ");
@@ -38,6 +41,9 @@ private EmpleadoDao empleadoDao = new EmpleadoDao();
         String dni = "";
         int opcion;
         do { 
+            System.out.println("                          ");
+            System.out.println("==========================");
+            System.out.println("                          ");
             System.out.println("1. Eliminar empleado");
             System.out.println("2. Actualizar datos empleado");
             System.out.println("3. Mostrar todos los empleados");
@@ -61,6 +67,9 @@ private EmpleadoDao empleadoDao = new EmpleadoDao();
                     }
                     int respuesta;
                     do { 
+                        System.out.println("                          ");
+                        System.out.println("==========================");
+                        System.out.println("                          ");
                         System.out.println("1. Actualizar nombre");
                         System.out.println("2. Actualizar apellido");
                         System.out.println("3. Actualizar DNI");

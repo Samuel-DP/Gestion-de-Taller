@@ -18,6 +18,11 @@ public class Cliente {
     public String getDni() { return this.dni; }
     public int getTelefono() { return this.telefono; }
 
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setApellido(String apellido) { this.apellido = apellido; }
+    public void setDni(String dni) { this.dni = dni; }
+    public void setTelefono(int telefono) { this.telefono = telefono; }
+
     @Override
     public String toString() {
         return "Cliente{" +

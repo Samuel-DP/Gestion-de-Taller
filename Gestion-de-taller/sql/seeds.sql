@@ -15,14 +15,33 @@ CREATE TABLE empleados(
     salario DEC(10.2)NOT NULL CHECK (salario > 0) 
 );
 
-CREATE TABLE vehiculos(
+CREATE TABLE vehiculos (
     id_vehiculo INT AUTO_INCREMENT PRIMARY KEY,
     matricula VARCHAR(15) NOT NULL,
     marca VARCHAR(10) NOT NULL,
-    modelo VARCHAR(10)NOT NULL,
+    modelo VARCHAR(10) NOT NULL,
     año INT NOT NULL,
     km INT NOT NULL,
-    nBastidor VARCHAR(30) NOT NULL
+    nBastidor VARCHAR(30) NOT NULL,
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+CREATE TABLE proveedores(
+    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    direccion VARCHAR(50) NOT NULL,
+    telefono INT NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE inventario(
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(20) NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DEC(10.2)NOT NULL CHECK(precio_unitario > 0),
+    id_proveedor INT NOT NULL,
+    FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor)
 );
 
 --TABLAS CREADAS HASTA AQUI
@@ -34,23 +53,6 @@ CREATE TABLE servicios(
     horas INT NOT NULL
 );
 
-CREATE TABLE inventario(
-    id_producto INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_producto VARCHAR(20) NOT NULL,
-    cantidad INT NOT NULL,
-    precio DEC(10.2)NOT NULL CHECK(PRECIO > 0),
-    id_proveedor INT NOT NULL,
-    FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor)
-);
-
-CREATE TABLE proveedores(
-    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(20) NOT NULL,
-    direccion VARCHAR(50),
-    telefono INT,
-    email VARCHAR(100),
-    cif VARCHAR(20)
-);
 
 CREATE TABLE asignaciones(
     id_asignaciones INT AUTO_INCREMENT PRIMARY KEY,
